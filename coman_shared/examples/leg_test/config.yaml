@@ -1,0 +1,44 @@
+#
+
+board_ctrl:
+  eth_iface: eth1:3
+  boards_num: 2
+
+# assume boards of same type have the same policy bc_rate !!! 
+
+mc_board:
+  policy: 0x89BF   
+  extra_policy: 0x10C9	 
+  bc_rate: 2
+
+ft_board:
+  policy: 0x2
+  bc_rate: 2
+  calibrate_offset: true
+
+# specific board config
+
+board_1:
+  current_lim_mA: 12000
+  # mNm / 10
+  max_torque_mNm: 10000 
+  impedance_control :
+    motor_config_mask : 0x4000
+    motor_config2_mask : 0x1
+  pid:
+    #position: [60000,5,3000]
+    #position: [50000,0,0]
+    # stiffness damping 
+    #position: [70000,0,5000]
+    position: [2000,0,0]
+    #velocity: [2000,0,500]
+    #torque:   [720,10,0]	
+    torque:   [1200,20,0]	
+    #torque:   [0,0,0]	
+
+board_2:
+  current_lim_mA: 12000 
+  pid:
+    position: [10000,0,0]
+
+

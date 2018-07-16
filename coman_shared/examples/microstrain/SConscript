@@ -1,0 +1,12 @@
+
+Import("env")
+
+imu = env.Clone()
+
+imu.Append(LIBPATH = ['$COMAN_SHARED_PATH/examples/lib/'])
+imu.Append(LIBS = ['coman_shared'])
+
+source = ['imu_test.cpp'] 
+
+imu.Program('imu_test', source)
+

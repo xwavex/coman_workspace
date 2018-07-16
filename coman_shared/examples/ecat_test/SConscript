@@ -1,0 +1,31 @@
+import os
+
+Import("env")
+
+ecat = env.Clone()
+
+ecat['ECAT_PATH'] = '$COMAN_SHARED_PATH/src/ecat'
+ecat.Append(CPPPATH = ['$ECAT_PATH','/usr/ethercat/include/'])
+ecat.Append(LIBPATH = ['$COMAN_SHARED_PATH/examples/lib/','/usr/ethercat/lib'])
+ecat.Append(LIBS = ['coman_shared'])
+if ecat['MODE'] == 'rt' :
+	ecat.Append(LIBS = ['libethercat_rtdm'])
+else :
+	ecat.Append(LIBS = ['libethercat'])
+	
+
+source = ['ecat_test.cpp', '$ECAT_PATH/ECat_master.cpp'] 
+
+ecat_b = ecat.Clone()
+ecat_b.Append(CPPDEFINES=['-DBECKHOFF'])
+
+ecat_s = ecat.Clone()
+ecat_s.Append(CPPDEFINES=['-DSHADOW'])
+
+ecat_a = ecat.Clone()
+ecat_a.Append(CPPDEFINES=['-DADVR'])
+
+ecat_a.Program('ecat_advr', source + ['advr_iit/ECM_test.cpp'])
+#ecat_b.Program('ecat_beckhoff', source + ['beckhoff/ECM_beckhoff.cpp'])
+#ecat_s.Program('ecat_shadow', source + ['shadow/ECM_shadow.cpp'])
+

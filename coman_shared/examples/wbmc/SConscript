@@ -1,0 +1,53 @@
+
+Import("env")
+wbmc = env.Clone()
+
+SetOption('num_jobs', 6)
+
+# eigen3 coman-linux desktop path
+wbmc.Append(CPPPATH = ['/usr/include/eigen3','cpp'])
+wbmc.Append(CCFLAGS = ['-mfpmath=sse','-mmmx','-msse','-msse2'])
+wbmc.Append(LIBPATH = ['$COMAN_SHARED_PATH/examples/lib/','cpp'])
+wbmc.Append(LIBS = ['coman_shared','wbmc_mat'])
+wbmc.Append(LINKFLAGS = ['-Wl,-rpath=$COMAN_SHARED_PATH/examples/wbmc/cpp'])
+
+wbmc.Append(CPPDEFINES=['-DNO_IMU'])
+
+# openMP
+#wbmc.Append(CPPDEFINES=['-DPARALLEL'])
+#wbmc.Append(CCFLAGS = ['-fopenmp'])
+#wbmc.Append(LIBS = ['gomp'])
+#
+
+source = ['test_main.cpp','Boards_ctrl_wbmc.cpp','eigen_test.cpp','min_effort.cpp']
+
+wbmc.Program('wbmc_main', source )
+
+#########################################################################
+
+worker = Environment()
+worker.VariantDir('build_scons/', '.')
+worker['COMAN_SHARED_PATH'] =  wbmc.subst(wbmc['COMAN_SHARED_PATH'])
+worker.Append(CPPPATH = wbmc.subst(wbmc['CPPPATH']))
+worker.Append(CCFLAGS = ['-std=c++0x','-g','-pg','-O3','-mfpmath=sse','-mmmx','-msse','-msse2'])
+worker.Append(LIBPATH = ['cpp'])
+worker.Append(LIBS = ['m','dl','stdc++','zmq','wbmc_mat'])
+worker.Append(LINKFLAGS = ['-Wl,-rpath=$COMAN_SHARED_PATH/examples/wbmc/cpp'])
+
+worker.Program('worker', ['worker.cpp','build/min_effort.cpp'])
+
+#########################################################################
+
+xddp = Environment()
+
+libs = Split("""
+m
+dl
+stdc++
+""")
+
+xddp.Append(LIBS = libs)
+xddp.Append(CCFLAGS = ['-std=c++0x','-g','-pg','-O3'])
+xddp.Append(CPPDEFINES=env['CPPDEFINES'])
+
+xddp.Program( target = 'xddp_console', source = ['xddp_thread.cpp'] )

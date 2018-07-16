@@ -1,0 +1,95 @@
+
+- LOGIN
+
+user/passwd :	embedded/pitagora
+		root/cartesio
+
+- NETWORK INTERFACES
+
+embedded@ccub-deb-blf:~$ hostname
+ccub-deb-blf
+
+embedded@ccub-deb-blf:~$ ifconfig
+eth0      Link encap:Ethernet  HWaddr 00:30:59:08:45:37  
+          inet addr:10.0.0.100  Bcast:10.0.0.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:24673 errors:0 dropped:21459 overruns:0 frame:0
+          TX packets:455 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:1720911 (1.6 MiB)  TX bytes:66845 (65.2 KiB)
+
+eth1      Link encap:Ethernet  HWaddr 00:30:59:04:a3:57  
+          inet addr:169.254.89.67  Bcast:169.254.89.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:242400 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:27633424 (26.3 MiB)  TX bytes:0 (0.0 B)
+          Interrupt:19 Memory:feae0000-feb00000 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:209 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:209 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:14984 (14.6 KiB)  TX bytes:14984 (14.6 KiB)
+
+// eth0 network interface from coman rear panel 
+// eth1 network interface connected to a dsp switch, direct connection with the motor controller boards
+
+ 
+embedded@ccub-deb-blf:~$ cat /etc/network/interfaces
+auto lo
+iface lo inet loopback
+
+auto eth0
+#iface eth0 inet dhcp
+iface eth0 inet static
+  address 10.0.0.100
+  netmask 255.255.255.0
+  broadcast 10.0.0.255
+  network 10.0.0.0
+
+auto eth1
+iface eth1 inet static
+  address 169.254.89.67
+  netmask 255.255.255.0
+  broadcast 169.254.89.255
+  network 169.254.89.0
+
+
+- XENOMAI
+
+// most of the drivers and skin are monolitic in the kernel 
+// to see xenomai kernel options 
+embedded@ccub-deb-blf:~$ zcat /proc/config.gz | grep XENO
+
+// to complete load xenomai and rtnet modules
+embedded@ccub-deb-blf:~$ sudo ./RTenv start
+embedded@ccub-deb-blf:~$ sudo ./rtnet start
+
+// to verify rtnet route table
+embedded@ccub-deb-blf:~$ rtroute
+
+
+
+- LOGIN and RUN CODE
+ 
+// You should have configured at least a network interface on 169.254.89.0 network and one on 10.0.0.0 (or the same on both network)  
+// I sugget to setup in your laptop/desktop a nfs-server to export at least COMAN_shared folder 
+ 
+//login via ssh
+ssh embedded@ccub-deb-blf.local (or)
+ssh embedded@10.0.100 
+ 
+// if you have setup a nfs-server, mount COMAN_shared in /home/embedded/nfs using mount_usr (check for exports) in /home/embedded
+// otherwise sync sources and compile using scons or CMake
+
+
+
+
+
+
+ 
+

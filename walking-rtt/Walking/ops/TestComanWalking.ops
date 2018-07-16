@@ -1,0 +1,82 @@
+import("rtt-gazebo-robot-sim");
+import("eigen_typekit");
+import("rst-rt_typekit");
+import("kdl_typekit");
+import("rtt_gazebo_embedded");
+import("rtt_ros");
+import("rtt_rosnode");
+import("rtt_rsbcomm");
+import("rtt_geometry_msgs");
+import("rtt_std_msgs");
+import("rtt_sensor_msgs");
+import("rtt_std_srvs");
+ros.import("rtt_roscomm");
+
+require("os");
+
+loadComponent("gazebo", "RTTGazeboEmbedded");
+setActivity("gazebo",0.0,1,ORO_SCHED_RT);
+
+loadComponent("coman","cogimon::robotSim");
+setActivity("coman",0,3,ORO_SCHED_RT);
+
+var bool portsConnected = false;
+var rstrt.geometry.Translation spawnComanTranslation = rstrt.geometry.Translation(0.0, 0.0, 0.0);
+var rstrt.geometry.Rotation spawnComanRotation = rstrt.geometry.Rotation(1.0, 0.0, 0.0, 0.0);
+
+gazebo.argv = strings("--verbose","--record_encoding=zlib");
+gazebo.add_plugin("/opt/ros/kinetic/lib/libgazebo_ros_api_plugin.so");
+
+var string urdf_path = "/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/share/gazebo/models/cogimon/iit-coman/model.urdf"
+var string srdf_path = "/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/share/gazebo/models/cogimon/iit-coman/coman.srdf"
+
+gazebo.configure();
+gazebo.start();
+gazebo.toggleDynamicsSimulation(false);
+gazebo.spawn_model_at_position_and_orientation("coman","model://iit-coman",spawnComanTranslation,spawnComanRotation);
+coman.loadURDFAndSRDF(urdf_path, srdf_path)
+coman.getModel("coman");
+coman.configure();
+coman.setControlMode("left_arm", "JointTorqueCtrl");
+coman.setControlMode("right_arm", "JointTorqueCtrl");
+coman.setControlMode("left_leg", "JointTorqueCtrl");
+coman.setControlMode("right_leg", "JointTorqueCtrl");
+coman.setControlMode("torso", "JointTorqueCtrl");
+
+import("Walking-rtt");
+loadComponent("walking", "Walking");
+setActivity("walking",0.001, 2,ORO_SCHED_RT);
+
+walking.configure();
+gazebo.toggleDynamicsSimulation(true);
+
+var ConnPolicy cp_1;
+connect("walking.left_arm_torque", "coman.left_arm_JointTorqueCtrl", cp_1);
+var ConnPolicy cp_2;
+connect("walking.right_arm_torque", "coman.right_arm_JointTorqueCtrl", cp_2);
+var ConnPolicy cp_3;
+connect("walking.left_leg_torque", "coman.left_leg_JointTorqueCtrl", cp_3);
+var ConnPolicy cp_4;
+connect("walking.right_leg_torque", "coman.right_leg_JointTorqueCtrl", cp_4);
+var ConnPolicy cp_5;
+connect("walking.torso_torque", "coman.torso_JointTorqueCtrl", cp_5);
+var ConnPolicy cp_6;
+connect("coman.left_arm_JointFeedback", "walking.left_arm_joint_data", cp_6);
+var ConnPolicy cp_7;
+connect("coman.right_arm_JointFeedback", "walking.right_arm_joint_data", cp_7);
+var ConnPolicy cp_8;
+connect("coman.left_leg_JointFeedback", "walking.left_leg_joint_data", cp_8);
+var ConnPolicy cp_9;
+connect("coman.right_leg_JointFeedback", "walking.right_leg_joint_data", cp_9);
+var ConnPolicy cp_10;
+connect("coman.torso_JointFeedback", "walking.torso_joint_data", cp_10);
+var ConnPolicy cp_11;
+connect("coman.l_arm_ft_SensorFeedback", "walking.left_arm_wrench", cp_11);
+connect("coman.r_arm_ft_SensorFeedback", "walking.right_arm_wrench", cp_11);
+connect("coman.l_leg_ft_SensorFeedback", "walking.left_foot_wrench", cp_11);
+connect("coman.r_leg_ft_SensorFeedback", "walking.right_foot_wrench", cp_11);
+portsConnected = true;
+
+
+gazebo.stop();
+walking.start();

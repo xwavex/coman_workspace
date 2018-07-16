@@ -1,0 +1,92 @@
+import os
+env = Environment()
+
+mode_arg = ARGUMENTS.get('mode', None)
+# (system, node, release, version, machine, processor)
+if mode_arg :
+	mode=mode_arg
+else :
+	mode = 'rt' if "xenomai" in os.uname()[2] else 'nrt'
+
+have_zmq = ARGUMENTS.get('zmq', 0) 
+
+env['MODE'] = mode
+
+if mode == 'rt' :
+	env.ParseConfig('/usr/xenomai/bin/xeno-config --skin=posix --cflags')
+	env.ParseConfig('/usr/xenomai/bin/xeno-config --skin=posix --ldflags')
+	env.Append(CPPPATH = ['/usr/local/rtnet/include'])
+	env.Append(LIBS = ['rtdm'])
+else :
+	env.Append(LIBS = ['pthread','rt'])
+
+env['COMAN_SHARED_PATH'] =  os.path.abspath('..')
+env['ROBOLLI_PATH'] = os.path.abspath('../src/robolli')
+env['OS_ABSTR_PATH'] = os.path.abspath('../src/os')
+env['OS_MICROSTRAIN_PATH'] = os.path.abspath('../src/microstrain')
+env['XDDP_CONSOLE_PATH'] = os.path.abspath('../src/xddp_console')
+env['Virtual_sensor'] = os.path.abspath('../src/Virtual_Sensors')
+
+
+libs = Split("""
+m
+dl
+stdc++
+yaml-cpp
+""")
+
+env['coman_lib_src'] = env.Split("""
+$ROBOLLI_PATH/CommProtocol.cpp
+$ROBOLLI_PATH/DSP_board.cpp
+$ROBOLLI_PATH/Boards_iface.cpp
+$ROBOLLI_PATH/Boards_ctrl_ext.cpp
+$OS_ABSTR_PATH/nrt_thread.cpp
+$OS_ABSTR_PATH/nrt_serial.cpp
+$OS_MICROSTRAIN_PATH/imu_3DM-GX3-25.cpp
+""")
+
+if mode == 'rt' :
+	env['coman_lib_src'].append('$OS_ABSTR_PATH/rt_thread.cpp')
+	env['coman_lib_src'].append('$OS_ABSTR_PATH/rt_serial.cpp')
+	env['coman_lib_src'].append('$OS_ABSTR_PATH/rt_ipc.cpp')
+
+if have_zmq :
+	env.Append(CPPDEFINES=['-DUSE_ZMQ'])
+	libs.append(['zmq','json'])
+	env['coman_lib_src'].append('$OS_ABSTR_PATH/zmq_publisher.cpp')
+
+env.Append(LIBS = libs) 
+#env.Append(CCFLAGS = ['-std=c++11','-O3'])
+env.Append(CCFLAGS = ['-std=c++0x','-O3'])
+# debug and gprof flag
+if ARGUMENTS.get('debug', None) :
+	env.Append(CCFLAGS = ['-g','-pg','-Wall'])
+env.Append(LINKFLAGS = ['-Wl,-rpath=$COMAN_SHARED_PATH/examples/lib'])
+# gprof flag
+#env.Append(LINKFLAGS = ['-pg'])
+env.Append(CPPDEFINES=[''])
+env.Append(CPPPATH = ['$ROBOLLI_PATH','$OS_ABSTR_PATH','$OS_MICROSTRAIN_PATH','.'])
+
+for dir in [
+	'basic',
+	'microstrain',
+	'walking',
+	'torque_calib',
+	'impedance',
+	#'ecat_test',
+	#'compact_arm',
+	#'leg_test',
+	#'wbmc',
+	#'wbmc/cpp',
+	'lib',
+	'xddp_console'] :
+
+    env.SConscript(
+	dir + os.sep + 'SConscript',
+	exports = 'env',
+	#variant_dir = 'Build' + os.sep + dir,
+	duplicate = 0
+	)
+
+
+

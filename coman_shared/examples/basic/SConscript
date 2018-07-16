@@ -1,0 +1,13 @@
+
+Import("env")
+
+basic = env.Clone()
+
+basic.Append(LIBPATH = ['$COMAN_SHARED_PATH/examples/lib/'])
+basic.Append(LIBS = ['coman_shared'])
+source = ['test_main.cpp','Boards_ctrl_basic.cpp']
+
+basic.Program('test_main', source )
+
+
+

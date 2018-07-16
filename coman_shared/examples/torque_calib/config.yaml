@@ -1,0 +1,22 @@
+#
+
+board_ctrl:
+  eth_iface: eth0
+  boards_num: 25
+
+# assume boards of same type have the same policy bc_rate !!! 
+
+mc_board:
+  policy: 0x081F #0x28FF
+  extra_policy: 0x0003
+  bc_rate: 100
+
+ft_board:
+  policy: 0x2
+  bc_rate: 200
+  calibrate_offset: true
+
+
+# specific board config
+
+

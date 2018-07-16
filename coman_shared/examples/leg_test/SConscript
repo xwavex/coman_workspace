@@ -1,0 +1,25 @@
+
+Import("env")
+
+leg = env.Clone()
+
+leg.Append(LIBPATH = ['$COMAN_SHARED_PATH/examples/lib/'])
+leg.Append(LIBS = ['coman_shared'])
+
+leg_src = ['leg_main.cpp','Boards_ctrl_leg.cpp']
+
+leg.Program('leg_main', leg_src )
+
+xddp = Environment()
+
+libs = Split("""
+m
+dl
+stdc++
+""")
+
+xddp.Append(LIBS = libs)
+xddp.Append(CCFLAGS = ['-std=c++0x','-g','-pg','-O3'])
+xddp.Append(CPPDEFINES=leg['CPPDEFINES'])
+
+xddp.Program( target = 'xddp_console', source = ['xddp_thread.cpp'] )

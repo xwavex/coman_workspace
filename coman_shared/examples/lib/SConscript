@@ -1,0 +1,9 @@
+Import("env")
+lib_target  = "coman_shared"
+
+#env.StaticLibrary(target = lib_target, source = env['coman_lib_src'])
+env.SharedLibrary(target = lib_target, source = env['coman_lib_src'])
+
+
+
+

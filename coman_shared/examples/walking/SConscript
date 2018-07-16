@@ -1,0 +1,23 @@
+
+Import("env")
+
+walk = env.Clone()
+
+walk_source = Split("""
+Boards_ctrl_walk.cpp
+RTControl.cpp
+GlobalExt.cpp
+Matrix.cpp
+Stabilizer.cpp
+TestJoint.cpp
+test_main.cpp
+""")
+
+walk.Append(LIBPATH = ['$COMAN_SHARED_PATH/examples/lib/'])
+walk.Append(LIBS = ['coman_shared'])
+
+walk.Append(CPPDEFINES=['-DEPFL', '-DDEMO_TYPE=1'])
+
+walk.Program( target = 'test_walking', source = walk_source )
+
+

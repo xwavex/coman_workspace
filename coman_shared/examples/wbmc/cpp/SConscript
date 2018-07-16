@@ -1,0 +1,25 @@
+import glob
+def SGlob(pattern):
+        path = GetBuildPath('SConscript').replace('SConscript', '')
+        result = []
+        for i in glob.glob(path + pattern):
+                result.append(i.replace(path, ''))
+        return result
+
+SetOption('num_jobs', 6)
+
+mat = Environment()
+
+mat.Append(CPPPATH = ['..'])
+# eigen3 coman-linux desktop path
+mat.Append(CPPPATH = ['/usr/include/eigen3'])
+mat.Append(CCFLAGS = ['-std=c++0x','-O3'])
+mat.Append(CCFLAGS = ['-mfpmath=sse','-mmmx','-msse','-msse2'])
+
+#cpp = ['wbmc_func.cpp','tau_1.cpp','inertia_1_1.cpp','dirDyn.cpp']
+#cpp += ['j_lm.cpp','j_am.cpp','j_LHand.cpp','j_RHand.cpp']
+#cpp += ['P_RHand.cpp','P_LHand.cpp']
+cpp = SGlob('*.cpp')
+
+mat.SharedLibrary(target = "wbmc_mat", source = cpp)
+

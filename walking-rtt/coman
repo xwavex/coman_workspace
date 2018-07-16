@@ -1,0 +1,7 @@
+#SimRobot replace /home/biorob with /home/user
+loadService("this", "scripting")
+scripting.runScript("/home/biorob/coman_workspace/walking-rtt/Walking/ops/TestComanWalking.ops")
+
+#RealRobot /home/biorob with /home/user
+loadService("this", "scripting")
+scripting.runScript("/home/biorob/coman_workspace/walking-rtt/Walking/ops/coman_walking_real.ops")

@@ -1,0 +1,21 @@
+#
+
+board_ctrl:
+  eth_iface: eth0
+  boards_num: 27
+
+
+mc_board:
+  bc_rate: 2
+  pid:
+    torque: [445,22,0]
+  impedance_control : 1
+  motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+  motor_config2_mask : 0x0
+
+ft_board:
+  bc_rate: 10
+  calibrate_offset: true
+
+
+

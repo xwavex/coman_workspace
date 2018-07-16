@@ -1,0 +1,11 @@
+
+Import("env")
+
+calib = env.Clone()
+
+calib.Append(LIBPATH = ['$COMAN_SHARED_PATH/examples/lib/'])
+calib.Append(LIBS = ['coman_shared'])
+source = ['calib_main.cpp']
+
+calib.Program('calib_torque', source)
+

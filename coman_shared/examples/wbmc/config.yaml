@@ -1,0 +1,234 @@
+#
+
+board_ctrl:
+  eth_iface: eth3
+  boards_num: 25
+
+# assume boards of same type have the same policy bc_rate !!!
+
+mc_board:
+  policy: 0x081F #0x28FF
+  extra_policy: 0x0003
+  bc_rate: 2
+
+ft_board:
+  policy: 0x2
+  bc_rate: 10
+  calibrate_offset: true
+
+
+board_8:    # R knee
+  pid:
+    position: [200000,0,5000]     #  Im[40000,0,5000]
+    #velocity: [0,0,0]           #  Im[0,0,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_9:    # R ankle pitch
+  pid:
+    position: [400000,0,5000]     #  Im[40000,0,5000]
+    #velocity: [0,0,0]           #  Im[0,0,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_10:   # R ankle roll
+  pid:
+    position: [200000,0,5000]     #  Im[40000,0,5000]
+    #velocity: [0,0,0]           #  Im[0,0,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_4:   # R hip pitch
+  pid:
+    position: [400000,0,5000]     #  Im[40000,0,5000]
+    #velocity: [0,0,0]           #  Im[0,0,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_6:    # R hip roll
+  pid:
+    position: [150000,0,5000]     #  Im[40000,0,5000]
+    #velocity: [0,0,0]           #  Im[0,0,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_7:    # R hip yaw
+  pid:
+    position: [60000,0,5000]     #  Im[40000,0,5000]
+    #velocity: [0,0,0]           #  Im[0,0,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+
+board_5:   # L hip pitch
+  pid:
+    position: [400000,0,5000]    #  Im[40000,0,5000]
+    #velocity: [0,0,0]          #  Im[0,0,0]
+    torque: [445,22,0]          #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803  # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_13:   # L knee
+  pid:
+    position: [200000,0,5000]     #  Im[40000,0,5000]
+    #velocity: [0,0,0]           #  Im[0,0,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_14:    # L ankle pitch
+  pid:
+    position: [400000,0,5000]     #  Im[40000,0,5000]
+    #velocity: [0,0,0]           #  Im[0,0,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_15:   # L ankle roll
+  pid:
+    position: [200000,0,5000]     #  Im[40000,0,5000]
+    #velocity: [0,0,0]           #  Im[0,0,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_11:    # L hip roll
+  pid:
+    position: [150000,0,5000]     #  Im[40000,0,5000]
+    #velocity: [0,0,0]           #  Im[0,0,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_12:    # R hip yaw
+  pid:
+    position: [60000,0,5000]     #  Im[40000,0,5000]
+    #velocity: [0,0,0]           #  Im[0,0,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+
+
+board_1:    # waist yaw
+  pid:
+    position: [40000,0,5000]     #  Im[40000,0,5000]
+    #torque: [445,22,0]           #  Im [445,22,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_2:    # waist pitch
+  pid:
+    position: [0,0,100]     #  Im[40000,0,5000]
+    #torque: [445,22,0]           #  Im [445,22,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_3:    # waist roll
+  pid:
+    position: [0,0,100]     #  Im[40000,0,5000]
+    #torque: [445,22,0]           #  Im [445,22,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+
+
+board_16:    # R Shoulder Pitch
+  pid:
+    position: [0,0,100]     #  Im[40000,0,5000]
+    #torque: [445,22,0]           #  Im [445,22,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_17:    # R Shoulder roll
+  pid:
+    position: [0,0,100]     #  Im[40000,0,5000]
+    #torque: [445,22,0]           #  Im [445,22,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+
+board_18:   # R Shoulder yaw
+  pid:
+    position: [40000,0,5000]     #  Im[40000,0,5000]
+    #torque: [445,22,0]           #  Im [445,22,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_19:   # R Elbow pitch
+  pid:
+    position: [40000,0,5000]     #  Im[40000,0,5000]
+    #torque: [445,22,0]           #  Im [445,22,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+
+board_20:   # L Shoulder Pitch
+  pid:
+    position: [40000,0,5000]     #  Im[40000,0,5000]
+    #torque: [445,22,0]           #  Im [445,22,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4843  # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_21:   # L Shoulder roll
+  pid:
+    position: [40000,0,5000]     #  Im[40000,0,5000]
+    #torque: [445,22,0]           #  Im [445,22,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+
+board_22:    # L Shoulder yaw
+  pid:
+    position: [40000,0,5000]     #  Im[40000,0,5000]
+    #torque: [445,22,0]           #  Im [445,22,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0
+
+board_23:   # L Elbow
+
+  pid:
+    position: [40000,0,5000]     #  Im[40000,0,5000]
+    #torque: [445,22,0]           #  Im [445,22,0]
+    torque: [445,22,0]           #  Im [445,22,0]
+  impedance_control :
+    motor_config_mask : 0x4803   # 0x4843 with output filter     0x4803 No output filter
+    motor_config2_mask : 0x0

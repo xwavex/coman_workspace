@@ -1,0 +1,43 @@
+#!/usr/bin/env deployer
+
+import("eigen_typekit")
+import("kdl_typekit")
+import("rst-rt_typekit")
+import("/home/biorob/iit-rtt-coman/rtt_coman/build/orocos/gnulinux/rtt_coman")
+import("motor_controller_test")
+require("os")
+
+
+loadComponent("coman","cogimon::rtt_coman")
+
+setActivity("coman",0.001,10,ORO_SCHED_OTHER)
+
+var string YAML_path = "/home/biorob/iit-rtt-coman/rtt_coman/config/config.yaml"
+coman.loadYAML(YAML_path)
+
+var string urdf_path = "/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/share/gazebo/models/cogimon/iit-coman-hardware/model.urdf"
+var string srdf_path = "/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/share/gazebo/models/cogimon/iit-coman-hardware/coman.srdf"
+coman.loadURDFAndSRDF(urdf_path, srdf_path)
+
+coman.configure()
+
+var double M_PI = 3.14159265359;
+coman.setOffSet("LShLat", 90.0*M_PI/180.0)
+coman.setOffSet("RShLat", -90.0*M_PI/180.0)
+
+var ints direction = ints(-1, -1, 1, -1, 1 ,1)
+coman.setForceTorqueMeasurementDirection("r_arm_ft", direction)
+
+coman.start()
+
+loadComponent("test", "motor_controller_test")
+
+addPeer("test", "coman")
+test.attachToRobot("coman")
+test.loadURDFAndSRDF(urdf_path, srdf_path)
+
+test.configure()
+
+test.start()
+
+

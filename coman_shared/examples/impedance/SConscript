@@ -1,0 +1,11 @@
+
+Import("env")
+
+impedance = env.Clone()
+
+impedance.Append(LIBPATH = ['$COMAN_SHARED_PATH/examples/lib/'])
+impedance.Append(LIBS = ['coman_shared'])
+source = ['impedance_main.cpp']
+
+impedance.Program('impedance_main', source )
+

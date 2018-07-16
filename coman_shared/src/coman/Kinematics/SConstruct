@@ -1,0 +1,5 @@
+env=Environment()
+lib_target  = "Kinematics"
+lib_sources = ["FwInvK.cpp","Matrix.cpp"]
+
+env.SharedLibrary(target = lib_target, source = lib_sources)

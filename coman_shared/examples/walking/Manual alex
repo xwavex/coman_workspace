@@ -1,0 +1,45 @@
+to compile the console in none real time mode,  /usr/local/src/COMAN_shared/examples$ scons mode='nrt' walking
+then run the walking exe file by /usr/local/src/COMAN_shared/examples/walking$ sudo ./test_walking 
+run the keyboard control by /usr/local/src/COMAN_shared/examples/walking$ sudo ./xddp_console 
+
+if run in real time mode(make sure you configure real time enternet), compile by /usr/local/src/COMAN_shared/examples$ scons walking
+then run the walking exe file by /usr/local/src/COMAN_shared/examples ./test_walking 
+run the keyboard control by /usr/local/src/COMAN_shared/examples/walking$ ./xddp_console 
+
+below is how to configure real time network
+
+To check if xenomai and rtnet modules are loaded run lsmod command, you should see 
+
+rt_via_rhine           22403  1 
+rt_loopback            12595  1 
+rtpacket               12973  0 
+rttcp                  34878  0 
+rtudp                  21540  0 
+rtipv4                 33864  2 rttcp,rtudp
+rtnet                  54868  6 rt_via_rhine,rt_loopback,rtpacket,rttcp,rtudp,rtipv4
+xeno_rtipc             49155  0 
+xeno_posix            710296  0 
+xeno_rtdm              61612  9 rt_via_rhine,rt_loopback,rtpacket,rttcp,rtudp,rtipv4,rtnet,xeno_rtipc,xeno_posix
+xeno_native
+
+If no modules are loaded run (first, make sure the robot is powered on and connected to the pc):
+	- sudo service xeno.sh start
+	- sudo service rtnet.sh start
+	- rtroute
+
+to stop the xenomai real time network, type 
+	- sudo service xeno.sh stop
+	- sudo service rtnet.sh stop
+
+
+keyboard control command:
+a: turn left
+d:turn right
+s: stop
+c: continue new walking
+i: increase step length
+u: decrease step length
+l: add hip offset in x direction
+k: reduce hip offset in x direction
+
+to show the demo: add hip x offset to 7mm to 1 cm for half body COMAN, then press c to start walking, use a and d to turn the robot, press s to stop robot when it is not turning anymore. press c again to start walking. remember every time when you start walking gait, step length is zero, you can increase by pressing i til a bit more than 4 cm.

@@ -1,0 +1,74 @@
+#
+
+board_ctrl:
+  eth_iface: eth1
+  boards_num: 4
+
+# assume boards of same type have the same policy bc_rate !!!
+
+mc_board:
+  policy: 0x86FF
+  extra_policy: 0x01C2
+  bc_rate: 2
+
+ft_board:
+  policy: 0x2
+  bc_rate: 2
+  calibrate_offset: true
+
+# specific board config
+
+
+board_1:
+  pid:
+    #position: [10000,0,100]
+    position: [200000,0,1000]
+    #position: [800000,0,4000]
+    velocity: [0,0,0]
+    torque: [0,0,0]
+  compact_arm:
+    # use LQR control, in compact_arm if set only use force loop: 0x80
+    motor_config_mask: 0x0
+    motor_type_mask: 0x10
+
+board_2:
+  pid:
+    #position: [10000,0,100]
+    position: [200000,0,1000]
+    #position: [800000,0,4000]
+
+    velocity: [100,10,0]       #####THESE ARE THE DAMPING LOOP GAINS
+    torque: [50,10,0]       #####THESE ARE THE PIEZO FORCE GAINS
+  compact_arm:
+    #################### use LQR control, in compact_arm if set only use force loop: 0x80
+    #motor_config_mask: 0x80
+    motor_config_mask: 0x0
+    # motor_type ---> mask 0x10 turn position profile off // and 0x0 turn the position profile on.
+    motor_type_mask: 0x10
+
+
+board_3:
+  pid:
+    #position: [10000,0,100]
+    position: [200000,0,1000]
+    #position: [800000,0,4000]
+    velocity: [100,10,0]
+    torque: [100,10,0]
+  compact_arm:
+    #################### use LQR control, in compact_arm if set only use force loop: 0x80
+    # motor_config_mask: 0x80
+    motor_config_mask: 0x0
+    # motor_type ---> mask 0x10 turn position profile off // and 0x0 turn the position profile on.
+    motor_type_mask: 0x10
+
+board_4:
+  pid:
+    #position: [10000,0,100]
+    position: [200000,0,1000]
+    #position: [800000,0,4000]
+    velocity: [0,0,0]
+    torque: [100,10,0]
+  compact_arm:
+    # use LQR control, in compact_arm if set only use force loop: 0x80
+    motor_config_mask: 0x0
+    motor_type_mask: 0x10
