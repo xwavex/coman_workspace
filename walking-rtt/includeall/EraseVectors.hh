@@ -1,6 +1,6 @@
 //#include "Parameters.hh"
 
-std::vector<double> pxVec, pyVec, pxswfVec, pyswfVec, vxVec, vyVec, vxswfVec, vyswfVec, axVec, thpFVec, thrFVec, dthpFVec, dthrFVec, kVec, pxAbsVec, pyAbsVec, vxFkVec, vxAbsVec, vyAbsVec, swFtPitchVec, dswFtPitchVec, swFtRollVec, dswFtRollVec, vecPxAbs, pxAbsMedVec, vxAbsVecF, frcRVec[3], frcLVec[3], trqRVec[3], trqLVec[3];
+std::vector<double> pxVec, pyVec, pxswfVec, pyswfVec, vxVec, vyVec, vxswfVec, vyswfVec, axVec, thpFVec, thrFVec, dthpFVec, dthrFVec, dthyFVec, thyFVec, kVec, pxAbsVec, pyAbsVec, vxFkVec, vxAbsVec, vyAbsVec, swFtPitchVec, dswFtPitchVec, swFtRollVec, dswFtRollVec, vecPxAbs, pxAbsMedVec, vxAbsVecF, frcRVec[3], frcLVec[3], trqRVec[3], trqLVec[3];
 
 std::vector<double> FRxVec, FRyVec, FRzVec, FLxVec, FLyVec, FLzVec, pHand, vHandVec, pHandVectTemp, relVelVec, velTimeWind, intForceVec, forceLeftAnkleZVec, forceRightAnkleZVec, sensorExtForceVec, tmVec; // frcRyVec, frcRzVec, frcLyVec, frcLzVec, trqRyVec, trqRzVec, trqLyVec, trqLzVec  
 
@@ -20,8 +20,10 @@ void EraseVectors()
        axVec.clear();
        thpFVec.clear();
        thrFVec.clear();
+       thyFVec.clear();
        dthpFVec.clear();
        dthrFVec.clear();
+       dthyFVec.clear();
        kVec.clear();
        pxAbsVec.clear();
        pxAbsMedVec.clear();

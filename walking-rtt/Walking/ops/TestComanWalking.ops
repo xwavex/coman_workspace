@@ -25,7 +25,7 @@ var rstrt.geometry.Translation spawnComanTranslation = rstrt.geometry.Translatio
 var rstrt.geometry.Rotation spawnComanRotation = rstrt.geometry.Rotation(1.0, 0.0, 0.0, 0.0);
 
 gazebo.argv = strings("--verbose","--record_encoding=zlib");
-gazebo.add_plugin("/opt/ros/kinetic/lib/libgazebo_ros_api_plugin.so");
+gazebo.add_plugin("/opt/ros/indigo/lib/libgazebo_ros_api_plugin.so");
 
 var string urdf_path = "/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/share/gazebo/models/cogimon/iit-coman/model.urdf"
 var string srdf_path = "/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/share/gazebo/models/cogimon/iit-coman/coman.srdf"

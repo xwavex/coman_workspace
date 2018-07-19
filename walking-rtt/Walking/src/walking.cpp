@@ -51,7 +51,8 @@ const double RIGHT_ELBOW_YAW = 0, LEFT_ELBOW_YAW = 0;
 
 // Note: Q_INIT[NUM] in the Control.cc is the same as qInit
 // static double qInit[NUM] = {0,0.075,0,qP0,qP0,-qR0,0,qknee0,qP0*1.4,qR0,qR0*1,0,qknee0,qP0*1.4,-qR0*1, 0.45, -0.2 , 0.0, -1.75, 0.45, 0.2, 0.0, -1.75, RIGHT_ELBOW_YAW,0.0,0.0,LEFT_ELBOW_YAW,0,0,0,0};
-static double qInit[NUM] = {0,0.075,0,qP0,qP0,-qR0,0, qknee0,qP0*1.4,qR0,qR0*1,0,qknee0,qP0*1.4,-qR0*1, 0.45, -0.2 , 0.0, -1.75, 0.45, 0.2, 0.0, -1.75, RIGHT_ELBOW_YAW,0.0,0.0,LEFT_ELBOW_YAW,0,0,0,0};
+const double HIP_YAW = 0.0;
+static double qInit[NUM] = {0,0.075,0,qP0,qP0,-qR0,HIP_YAW, qknee0,qP0*1.4,qR0,qR0*1,HIP_YAW,qknee0,qP0*1.4,-qR0*1, 0.45, -0.2 , 0.0, -1.75, 0.45, 0.2, 0.0, -1.75, RIGHT_ELBOW_YAW,0.0,0.0,LEFT_ELBOW_YAW,0,0,0,0};
 
 #ifndef REAL_ROBOT
     const double TIME2WALK=10;

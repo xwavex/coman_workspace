@@ -47,7 +47,9 @@ typedef Eigen::Matrix< double , Eigen::Dynamic , Eigen::Dynamic , Eigen::RowMajo
 
 static double qknee0 = 0.2, qP0 = -0.1, qR0 = 0.055*1;
 static double RIGHT_ELBOW_YAW = 0, LEFT_ELBOW_YAW = 0;
-static double Q_INIT[N] = {0,0.075,0,qP0,qP0,-qR0,0,qknee0,qP0*1.4,qR0,qR0*1,0,qknee0,qP0*1.4,-qR0*1, 0.45, -0.2 , 0.0, -1.75, 0.45, 0.2, 0.0, -1.75, RIGHT_ELBOW_YAW,0.0,0.0,LEFT_ELBOW_YAW,0,0,0,0};
+const double HIP_YAW = 0.0;
+
+static double Q_INIT[N] = {0,0.075,0,qP0,qP0,-qR0,HIP_YAW,qknee0,qP0*1.4,qR0,qR0*1,HIP_YAW,qknee0,qP0*1.4,-qR0*1, 0.45, -0.2 , 0.0, -1.75, 0.45, 0.2, 0.0, -1.75, RIGHT_ELBOW_YAW,0.0,0.0,LEFT_ELBOW_YAW,0,0,0,0};
 static int count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0;
 
 
@@ -91,8 +93,8 @@ static int stepNumber = 1;
 static int indexSt[6] = {4,10,11,12,13,14}, indexSw[6] = {3,5,6,7,8,9};
 static unsigned int side  = 0, oldSide = side;
 static double qSensInit[N];
-static double thpF, thrF, thpF_init, thrF_init, thPelvisInit[3], swFtPosInit[3], orSwFtInit[3];
-static double px, px0, py, pxswf, pyswf, vx, vy, vxswf, vyswf, ax,  px_old, py_old, pxswf_old, pyswf_old, dthpF, dthrF, swFtPitch, swFtPitch_old, dswFtPitch, swFtRoll, swFtRoll_old, dswFtRoll;
+static double thpF, thrF, thyF, thpF_init, thrF_init, thyF_init, thPelvisInit[3], swFtPosInit[3], orSwFtInit[3];
+static double px, px0, py, pxswf, pyswf, vx, vy, vxswf, vyswf, ax,  px_old, py_old, pxswf_old, pyswf_old, dthpF, dthrF, dthyF, swFtPitch, swFtPitch_old, dswFtPitch, swFtRoll, swFtRoll_old, dswFtRoll;
 static double k_vec[M5], sumk, forceLeftAnkleZMed, forceRightAnkleZMed;
 static double vec_px[M], vec_py[M], vec_pxswf[M5], vec_pyswf[M5], vec_swFtPitch[M3], vec_swFtRoll[M3];
 static double k, pxAbs, pxAbsMed, pyAbs, vxAbs, vxAbsF, vyAbs, pxAbs_old, pyAbs_old, vec_pxAbs[M], vec_pyAbs[M], vxFK, avgFreq = f_d;
@@ -156,6 +158,7 @@ void Control::LowerBody( double tm, double *Q0, double *qSens, double *qSensAbs,
 
     thPelvis[0] = thp;
     thPelvis[1] = thr;
+    thPelvis[2] = thy;
     for (int i = 0; i < N; i++){
         MedianFilter(qSensAbsVec[i], qSensAbsMed[i], qSensAbs[i], M2);
     }
@@ -189,6 +192,10 @@ void Control::LowerBody( double tm, double *Q0, double *qSens, double *qSensAbs,
     AvgFilter(dthpFVec, dthpF, angRates[1], M5);
     AvgFilter(thrFVec, thrF, thr, M5);
     AvgFilter(dthrFVec, dthrF, angRates[0], M5);
+
+    AvgFilter(thyFVec, thyF, thy, M5);
+    AvgFilter(dthyFVec, dthyF, angRates[2], M5);
+
     AvgFilter(swFtPitchVec, swFtPitch, orSwFt[1], M4);
     AvgFilter(dswFtPitchVec, dswFtPitch, (swFtPitch-swFtPitch_old)/(DTm*M3), M2);
     AvgFilter(swFtRollVec, swFtRoll, orSwFt[0], M4);
@@ -243,9 +250,14 @@ void Control::LowerBody( double tm, double *Q0, double *qSens, double *qSensAbs,
     dorSwFt[1] = tInStep > DTm * M4 ? dswFtPitch : 0;
     thp = thpF;
     thr = thrF;
+    thy = thyF;
+
     orSwFt[1] = swFtPitch;
     thPelvis[0] = thp;
     thPelvis[1] = thr;
+
+    thPelvis[2] = thy;
+
     pSwFtInH[0] = pxswf;
     pSwFtInH[1] = pyswf;
 
@@ -330,6 +342,7 @@ if (t >= TIME_WALK && startWalkingFlag == 0){
     }
     thpF_init = thpF;
     thrF_init = thrF;
+    thyF_init = thyF;
     px0 = pxAbs;
 }
 
@@ -373,6 +386,7 @@ if (tInStep < ZERO_S){
     }
     thpF_init = thpF;
     thrF_init = thrF;
+    thyF_init = thyF;
     px0 = pxAbs;
 }
 
@@ -480,6 +494,7 @@ for (int i = 0; i < 3; i++){
 
 // High-level foot adjustment
 DesiredFtPos(pxAbs, pyAbs, tInStep, px0, vxDes, vxAbs, vxAbsF, vyAbs, sg, deltaX, deltaY, kv, frontalBias, s, T);
+deltaY = 0;
 
 if (forceRightAnkleZMed < AirTresh && forceLeftAnkleZMed < AirTresh){
     stepNumber = 1;
@@ -506,8 +521,9 @@ else{
         // cout << tm - t0 << endl;
     }
     else{
-        walkingController3.EvalOutputs(s, f0, Q_INIT, qSens, dqSens, kR, kL, indexSt, indexSw, thp, dthpF, thr, dthrF, x0, deltaX, deltaY, qSensInit,
-                                        swFtPosInit, thpF_init, thrF_init, px0, pSwFtInH, vSwFtInH, orSwFt, dorSwFt, orSwFtInit, h, dh, hD, dhD, STEP_LENGTH, QswKMid);
+        cout << " YAW " << thyF << endl;
+        walkingController3.EvalOutputs(s, f0, Q_INIT, qSens, dqSens, kR, kL, indexSt, indexSw, thp, dthpF, thy, dthyF, thr, dthrF, x0, deltaX, deltaY, qSensInit,
+                                        swFtPosInit, thpF_init, thrF_init, thyF_init, px0, pSwFtInH, vSwFtInH, orSwFt, dorSwFt, orSwFtInit, h, dh, hD, dhD, STEP_LENGTH, QswKMid);
         walkingController3.EvalTorques(s,tInStep, f_d, f0, x0, px0, Q_INIT, qSens, dqSens, kR, kL, orSwFt, tauAnkTorque, forceRightAnkleF, forceLeftAnkleF, torqueRightAnkleF, torqueLeftAnkleF,
                                         pPelvisAbs, vxAbsF, h, dh, hD, dhD, tauDes, vals); // *** no need to send whichcoman command?
     }
@@ -536,6 +552,7 @@ if (t >= TIME_WALK && startWalkingFlag == 0){
     }
     thpF_init = thpF;
     thrF_init = thrF;
+    thyF_init = thyF;
     px0 = pxAbs;
 }
 
@@ -579,6 +596,7 @@ if (tInStep < ZERO_S){
     }
     thpF_init = thpF;
     thrF_init = thrF;
+    thyF_init = thyF;
     px0 = pxAbs;
 }
 
@@ -686,7 +704,7 @@ for (int i = 0; i < 3; i++){
 
 // High-level foot adjustment
 DesiredFtPos(pxAbs, pyAbs, tInStep, px0, vxDes, vxAbs, vxAbsF, vyAbs, sg, deltaX, deltaY, kv, frontalBias, s, T);
-
+deltaY = 0;
 if (forceRightAnkleZMed < AirTresh && forceLeftAnkleZMed < AirTresh){
     stepNumber = 1;
     side = SIDE_INITIAL;
@@ -712,8 +730,8 @@ else{
         // cout << tm - t0 << endl;
     }
     else{
-        walkingController3.EvalOutputs(s, f0, Q_INIT, qSens, dqSens, kR, kL, indexSt, indexSw, thp, dthpF, thr, dthrF, x0, deltaX, deltaY, qSensInit,
-                                        swFtPosInit, thpF_init, thrF_init, px0, pSwFtInH, vSwFtInH, orSwFt, dorSwFt, orSwFtInit, h, dh, hD, dhD, STEP_LENGTH, QswKMid);
+        walkingController3.EvalOutputs(s, f0, Q_INIT, qSens, dqSens, kR, kL, indexSt, indexSw, thp, dthpF, thy, dthyF, thr, dthrF, x0, deltaX, deltaY, qSensInit,
+                                        swFtPosInit, thpF_init, thrF_init, thyF_init , px0, pSwFtInH, vSwFtInH, orSwFt, dorSwFt, orSwFtInit, h, dh, hD, dhD, STEP_LENGTH, QswKMid);
         walkingController3.EvalTorques(s,tInStep, f_d, f0, x0, px0, Q_INIT, qSens, dqSens, kR, kL, orSwFt, tauAnkTorque, forceRightAnkleF, forceLeftAnkleF, torqueRightAnkleF, torqueLeftAnkleF,
                                         pPelvisAbs, vxAbsF, h, dh, hD, dhD, tauDes, vals);
     }
@@ -781,6 +799,7 @@ else{
         varsOut.indexSt_=indexSt;
         varsOut.pxAbsOld_=pxAbs_old;
         varsOut.pPelvisAbsF_=pPelvisAbsF;
+        varsOut.thyF_ = thyF;
 }
 
 
@@ -792,6 +811,7 @@ void Control::SaveVars(std::ofstream &outputFile){
             // start_id = 2
             for (int i = 0; i < N; i++){
                 outputFile << " " << varsOut.qSens_[i];
+
             }
             //  start_id = 2 + n
             for (int i = 0; i < N; i++){
@@ -974,5 +994,6 @@ void Control::SaveVars(std::ofstream &outputFile){
                       << " " << varsOut.frontalBias_
                       << " " << varsOut.vxAbsF_
                       << " " << varsOut.pxAbsOld_
+                      << " " << varsOut.thyF_
                       << std::endl;
 }

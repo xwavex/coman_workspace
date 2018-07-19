@@ -5,6 +5,9 @@
 #include "SwFtPosToHip.hh"
 #include "SwFtXtoHipPitch.hh"
 #include "SwFtOrToAnk.hh"
+#include <stdlib.h>   
+
+#define AVG_FILTER 5
 
 #ifndef REAL_ROBOT
     #define N 31
@@ -19,12 +22,14 @@
 using namespace std;
 WalkingController3::WalkingController3()
 {
-
+	avg_yaw.reserve(AVG_FILTER);
+	for (int i; i < AVG_FILTER ; i++)
+		avg_yaw[i] = 0;
 }
 
 void WalkingController3::EvalOutputs(double s, double f0, double Q_INIT[], double qSens[], double dqSens[], double kR, double kL, int indexSt[], int indexSw[],double thpF,
-                                     double dthpF, double thr, double dthrF, double x0, double deltaX, double deltaHipPitchvy, double qSensInit[], double pSw_init[],
-                                     double thpF_init, double thrF_init, double px0, double pSwFtInH[], double vSwFtInH[], double orSwFt[], double dorSwFt[],
+                                     double dthpF, double thyF, double dthyF, double thr, double dthrF, double x0, double deltaX, double deltaHipPitchvy, double qSensInit[], double pSw_init[],
+                                     double thpF_init, double thrF_init, double thyF_init, double px0, double pSwFtInH[], double vSwFtInH[], double orSwFt[], double dorSwFt[],
                                      double orSwFtInit[], double h[], double dh[], double hD[], double dhD[], double STEP_LENGTH, double QswKMid)
 {
 
@@ -35,10 +40,40 @@ void WalkingController3::EvalOutputs(double s, double f0, double Q_INIT[], doubl
         qSw[i] = qSens[indexSw[i]];
     }
     double calSwRoll = 0.0;
-    const double L_KNEE_BIAS = -0.0;
 
+    double yawAngle, yaw_desired, yaw_curr, yaw_curr2;
+
+    // avg_yaw.push_back(thyF);
+    // avg_yaw.erase (0);
+    
+    double sum = 0;
+
+    
+
+    for (int i = 0 ; i < AVG_FILTER-1; i++)
+    {
+    	avg_yaw[i] = avg_yaw[i+1];
+    	 //cout << " TESTE " << i << " " << avg_yaw[i] << endl;		
+    	sum = sum + avg_yaw[i];
+	}
+	avg_yaw[4] = thyF;
+	sum = sum + avg_yaw[4];
+
+    yaw_curr = sum/AVG_FILTER;
+    // yaw_curr2 = abs(yaw_curr);
+    
+
+   // cout << " TEST " << yaw_curr2 << endl;
+
+    yaw_desired = 0.3;
+   // yawAngle = 0.05*(abs(yaw_desired)-yaw_curr2)/(yaw_desired);
+    yawAngle = -0.15*(yaw_desired-yaw_curr);
+
+
+    const double L_KNEE_BIAS = -0.0;
+    const double HIP_YAW = 0.075;
     const double TORSO_YAW_D = 0, TORSO_PITCH_D = Q_INIT[1], TORSO_ROLL_D = Q_INIT[2], THP_D = 0, THR_D = 0;
-    const double R_LEG_YAW_D = 0, L_LEG_YAW_D = 0, RST_KNEE_FINAL_D = 0.15, LST_KNEE_FINAL_D = 0.15 + L_KNEE_BIAS, RSW_KNEE_FINAL_D = 0.17 + 0.6 * STEP_LENGTH,
+    const double R_LEG_YAW_D = HIP_YAW, L_LEG_YAW_D = HIP_YAW, RST_KNEE_FINAL_D = 0.15, LST_KNEE_FINAL_D = 0.15 + L_KNEE_BIAS, RSW_KNEE_FINAL_D = 0.17 + 0.6 * STEP_LENGTH,
                  LSW_KNEE_FINAL_D = 0.17 + 0.6 * STEP_LENGTH + L_KNEE_BIAS, SW_FT_PITCH_D = 0;
     const double R_ST_ANKLE_ROLL_D = -Q_INIT[5], R_SW_FT_ROLL_D = 0;
     const double L_ST_ANKLE_ROLL_D = -Q_INIT[10] - calSwRoll, L_SW_FT_ROLL_D = 0;
@@ -192,31 +227,50 @@ void WalkingController3::EvalOutputs(double s, double f0, double Q_INIT[], doubl
     dhD[10] = kL * (0 - dhPelvisRollD) + (1 - kL) * 0;
 #endif
 
-    double hRlegYawD, dhRlegYawD, hRlegYaw, dhRlegYaw, hRlegYawInit;
-    hRlegYaw = qSens[6];
-    dhRlegYaw = dqSens[6];
-    hRlegYawInit = qSensInit[6];
-    double hRlegYawAlphaD[6] = {hRlegYawInit, 0.5 * (hRlegYawInit + R_LEG_YAW_D), R_LEG_YAW_D, R_LEG_YAW_D, R_LEG_YAW_D, R_LEG_YAW_D};
-    hRlegYawD = bezierPoly5.get_bezier(hRlegYawAlphaD, s);
-    dhRlegYawD = bezierPoly5.get_derv_bezier(hRlegYawAlphaD, s);
+//Stance 
+    double hRlegStYawD, dhRlegStYawD, hRlegStYaw, dhRlegStYaw, hRlegStYawInit;
+    hRlegStYaw = qSens[6];
+    dhRlegStYaw = dqSens[6];
+    hRlegStYawInit = qSensInit[6];
+    double hRlegStYawAlphaD[6] = {hRlegStYawInit, hRlegStYawInit,hRlegStYawInit, hRlegStYawInit, hRlegStYawInit, hRlegStYawInit};
+    hRlegStYawD = bezierPoly5.get_bezier(hRlegStYawAlphaD, s);
+    dhRlegStYawD = bezierPoly5.get_derv_bezier(hRlegStYawAlphaD, s);
 
-    h[6] = hRlegYaw;
-    dh[6] = dhRlegYaw;
-    hD[6] = hRlegYawD;
-    dhD[6] = dhRlegYawD;
+//Swing
+    double hRlegSwYawD, dhRlegSwYawD, hRlegSwYaw, dhRlegSwYaw, hRlegSwYawInit;
+    hRlegSwYaw = qSens[6];
+    dhRlegSwYaw = dqSens[6];
+    hRlegSwYawInit = qSensInit[6];
+    double hRlegSwYawAlphaD[6] = {hRlegSwYawInit, 0.5 * (hRlegSwYawInit + R_LEG_YAW_D),R_LEG_YAW_D, R_LEG_YAW_D, R_LEG_YAW_D, R_LEG_YAW_D};
+    hRlegSwYawD = bezierPoly5.get_bezier(hRlegSwYawAlphaD, s);
+    dhRlegSwYawD = bezierPoly5.get_derv_bezier(hRlegSwYawAlphaD, s);
 
-    double hLlegYawD, dhLlegYawD, hLlegYaw, dhLlegYaw, hLlegYawInit;
-    hLlegYaw = qSens[11];
-    dhLlegYaw = dqSens[11];
-    hLlegYawInit = qSensInit[11];
-    double hLlegYawAlphaD[6] = {hLlegYawInit, 0.5 * (hLlegYawInit + L_LEG_YAW_D), L_LEG_YAW_D, L_LEG_YAW_D, L_LEG_YAW_D, L_LEG_YAW_D};
-    hLlegYawD = bezierPoly5.get_bezier(hLlegYawAlphaD, s);
-    dhLlegYawD = bezierPoly5.get_derv_bezier(hLlegYawAlphaD, s);
 
-    h[11] = hLlegYaw;
-    dh[11] = dhLlegYaw;
-    hD[11] = hLlegYawD;
-    dhD[11] = dhLlegYawD;
+    h[6] = kR * hRlegStYaw + (1 - kR) * hRlegSwYaw;//hRlegYaw; 
+    dh[6] = kR * dhRlegStYaw + (1 - kR) * dhRlegSwYaw;//dhRlegYaw;
+    hD[6] = kR * hRlegStYawD + (1 - kR) * hRlegSwYawD;//hRlegYawD;
+    dhD[6] = kR * dhRlegStYawD + (1 - kR) * dhRlegSwYawD;//dhRlegYawD;
+
+    double hLlegStYawD, dhLlegStYawD, hLlegStYaw, dhLlegStYaw, hLlegStYawInit;
+    hLlegStYaw = qSens[11];
+    dhLlegStYaw = dqSens[11];
+    hLlegStYawInit = qSensInit[11];
+    double hLlegStYawAlphaD[6] = {hLlegStYawInit,hLlegStYawInit, hLlegStYawInit, hLlegStYawInit, hLlegStYawInit, hLlegStYawInit};
+    hLlegStYawD = bezierPoly5.get_bezier(hLlegStYawAlphaD, s);
+    dhLlegStYawD = bezierPoly5.get_derv_bezier(hLlegStYawAlphaD, s);
+
+    double hLlegSwYawD, dhLlegSwYawD, hLlegSwYaw, dhLlegSwYaw, hLlegSwYawInit;
+    hLlegSwYaw = qSens[11];
+    dhLlegSwYaw = dqSens[11];
+    hLlegSwYawInit = qSensInit[11];
+    double hLlegSwYawAlphaD[6] = {hLlegSwYawInit, 0.5 * (hLlegSwYawInit + L_LEG_YAW_D), L_LEG_YAW_D, L_LEG_YAW_D, L_LEG_YAW_D, L_LEG_YAW_D};
+    hLlegSwYawD = bezierPoly5.get_bezier(hLlegSwYawAlphaD, s);
+    dhLlegSwYawD = bezierPoly5.get_derv_bezier(hLlegSwYawAlphaD, s);
+
+    h[11] = kL * hLlegStYaw + (1 - kL) * hLlegSwYaw; //hLlegYaw;
+    dh[11] = kL * dhLlegStYaw + (1 - kL) * dhLlegSwYaw; //dhLlegYaw;
+    hD[11] = kL * hLlegStYawD + (1 - kL) * hLlegSwYawD; //hLlegYawD;
+    dhD[11] = kL * dhLlegStYawD + (1 - kL) * dhLlegSwYawD; //dhLlegYawD;
 
     double hRStKneeD, dhRStKneeD, hRStKneeInit;
     hRStKneeInit = qSensInit[7];
@@ -433,6 +487,11 @@ void WalkingController3::EvalTorques(double s, double tInStep, double f_d, doubl
         Kp[i] = 300;
         Kd[i] = 0;
     }
+    
+    // Kp[6] = 200+160*kR;;
+    // Kd[6] = 15-12.5*pow(kR,3);
+    // Kp[11] = 200+160*3;
+    // Kd[11] = 15-12.5*pow(kL,3);
     #else
 
     

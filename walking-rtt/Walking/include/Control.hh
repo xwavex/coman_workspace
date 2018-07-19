@@ -115,12 +115,13 @@ public:
             double velSimpleThreshold_;
             double pxAbsOld_;
             double *pPelvisAbsF_;
+            double thyF_;
             std::vector<double> velTimeWind_;
             state_vars(): tm_(),n_(), qSens_(), qSensAbs_(), dqSens_(), pPelvis_(), pPelvisAbs_(), vPelvis_(), vPelvisAbs_(), aPelvis_(), forceRightAnkle_(), forceLeftAnkle_(), torqueRightAnkle_(), \
                 torqueLeftAnkle_(), forceRightHand_(), forceLeftHand_(),orSwFt_(), dorSwFt_(), pSwFtInH_(), angRates_(), h_(), hD_(), pPelvisFK_(), pPelvisTest_(), vPelvisFk_(), tauSens_(),\
                 tauDes_(), tauAnkTorque_(), k_(), s_(), tInStep_(), deltaX_(), deltaY_(), thp_(), thpF_init_(),thr_(), side_(), vxFK_(), kv_(),px0_(),kOrg_(), vxDes_(), x0_(), T_(), trans_(),\
                 imuAngRates_(),imuAccelerations_(),kR_(),kL_(),avgFreq_(),f0_(),last_step_freq_(),frontalBias_(),vxAbsF_(),qSensAbsMed_(),pPelvisAbsMed_(),handRightPos_(),forceSensors_(),inCommands_(),\
-                handRightVelFilt_(), qSt_(), indexSt_(), velRel_(), forceDiff_(), velSimpleThreshold_(), velTimeWind_(), pxAbsOld_(), pPelvisAbsF_(){}
+                handRightVelFilt_(), qSt_(), indexSt_(), velRel_(), forceDiff_(), velSimpleThreshold_(), velTimeWind_(), pxAbsOld_(), pPelvisAbsF_(), thyF_(){}
     };
 
     state_vars varsOut;

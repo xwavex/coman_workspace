@@ -1,0 +1,40 @@
+FILE(REMOVE_RECURSE
+  "CMakeFiles/Walking-rtt.dir/srcall/WalkingController3.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/SwFtErrJac2.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/forward_kinematics_swing_foot.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/StFtToPelvisFK.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/StFtToPelvisJac.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/SwFtOrToAnk.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/SwFtPosToHip.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/SwFtXtoHipPitch.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/SwFtOrErrJac.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/h_Jac_compute.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/bezier.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/forward_kinematics_pelvis1.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/imu_data.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/SwFtXerrJac.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/saturate.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/SwFtErrJac.cc.o"
+  "CMakeFiles/Walking-rtt.dir/Walking/src/Control.cc.o"
+  "CMakeFiles/Walking-rtt.dir/Walking/src/init_pos.cpp.o"
+  "CMakeFiles/Walking-rtt.dir/Walking/src/walking.cpp.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/state_estimation_src/kinematics.cpp.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/state_estimation_src/acc_integration.cpp.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/state_estimation_src/or_integration.cpp.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/state_estimation_src/rotateIMU.cpp.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/state_estimation_src/forward_kinematics.cpp.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/state_estimation_src/skew.cpp.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/state_estimation_src/kin_initialize.cpp.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/state_estimation_src/state_estimation.cc.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/state_estimation_src/compute_matrix.cpp.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/state_estimation_src/compute_x.cpp.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/state_estimation_src/rot_vector.cpp.o"
+  "CMakeFiles/Walking-rtt.dir/srcall/state_estimation_src/motionless_detect.cc.o"
+  "orocos/gnulinux/Walking-rtt/libWalking-rtt-gnulinux.pdb"
+  "orocos/gnulinux/Walking-rtt/libWalking-rtt-gnulinux.so"
+)
+
+# Per-language clean rules from dependency scanning.
+FOREACH(lang CXX)
+  INCLUDE(CMakeFiles/Walking-rtt.dir/cmake_clean_${lang}.cmake OPTIONAL)
+ENDFOREACH(lang)

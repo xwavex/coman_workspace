@@ -1,0 +1,583 @@
+0.000 [ Info   ][Logger] No ORO_LOGLEVEL environment variable set.
+0.000 [ Info   ][Logger]  OROCOS version '2.8.3' compiled with GCC 4.8.4. Running in GNU/Linux.
+0.000 [ Info   ][Logger] Orocos Logging Activated at level : [ Warning] ( 4 ) 
+0.000 [ Info   ][Logger] Reference System Time is : 1532005448812202595 ticks ( 1.53201e+09 seconds ).
+0.000 [ Info   ][Logger] Logging is relative to this time.
+0.000 [ Info   ][Logger] RTT_COMPONENT_PATH was set to: /home/biorob/coman_workspace/build/orocos:/home/biorob/coman_workspace/iit-rtt-coman/rtt_coman/build/orocos:/opt/ros/indigo/lib/orocos:/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos:/opt/ros/indigo/lib/orocos . Searching in: /home/biorob/coman_workspace/build/orocos:/home/biorob/coman_workspace/iit-rtt-coman/rtt_coman/build/orocos:/opt/ros/indigo/lib/orocos:/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos
+0.000 [ Info   ][Logger] plugin 'rtt' not loaded before.
+0.000 [ Info   ][Logger] Loading plugin libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/./plugins ...
+0.001 [ Info   ][Logger] Loaded RTT Service 'marshalling' from 'rtt-marshalling'
+0.001 [ Info   ][Logger] Loaded RTT Service 'scripting' from 'rtt-scripting'
+0.001 [ Info   ][Logger] Loading plugin libraries from directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/./plugins ...
+0.001 [ Info   ][Logger] typekit 'rtt' not loaded before.
+0.001 [ Info   ][Logger] Loading typekit libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/./types ...
+0.015 [ Info   ][TypekitRepository::Import] Loading Transport CORBA://rtt-types.
+0.015 [ Info   ][Logger] Loaded RTT TypeKit/Transport 'rtt-corba-types' from 'rtt-transport-corba'
+0.032 [ Info   ][TypekitRepository::Import] Loading Typekit rtt-types.
+0.032 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for int
+0.032 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for uint
+0.032 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for double
+0.032 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for float
+0.032 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for char
+0.032 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for bool
+0.032 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for void
+0.032 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for ConnPolicy
+0.032 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for TaskContext
+0.032 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for string
+0.032 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for array
+0.033 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for rt_string
+0.033 [ Info   ][Logger] Loaded RTT TypeKit/Transport 'rtt-types' from 'rtt-typekit'
+0.034 [ Info   ][TypekitRepository::Import] Loading Transport mqueue://rtt-types.
+0.034 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for array
+0.034 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for bool
+0.034 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for char
+0.034 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for double
+0.034 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for float
+0.034 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for int
+0.034 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for uint
+0.034 [ Info   ][Logger] Loaded RTT TypeKit/Transport 'rtt-mqueue-transport' from 'rtt-transport-mqueue'
+0.034 [ Info   ][Logger] Loading typekit libraries from directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/./types ...
+0.034 [ Info   ][Logger] RTT_COMPONENT_PATH was set to: /home/biorob/coman_workspace/build/orocos:/home/biorob/coman_workspace/iit-rtt-coman/rtt_coman/build/orocos:/opt/ros/indigo/lib/orocos:/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos:/opt/ros/indigo/lib/orocos . Searching in: /home/biorob/coman_workspace/build/orocos:/home/biorob/coman_workspace/iit-rtt-coman/rtt_coman/build/orocos:/opt/ros/indigo/lib/orocos:/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos
+0.035 [ Info   ][Logger] OCL factory set for real-time logging
+0.035 [ Info   ][Thread] Creating Thread for scheduler=ORO_SCHED_OTHER, priority=1, CPU affinity=0, with name='Deployer'
+0.035 [ Info   ][Deployer] Thread created with scheduler type 'ORO_SCHED_OTHER', priority 0, cpu affinity 15 and period 0 (PID= 19040 ).
+0.035 [ Info   ][Logger] No site file was found. Importing 'ocl' by default.
+0.035 [ Info   ][ComponentLoader::import(path_list)] Importing directory /opt/ros/indigo/lib/orocos/gnulinux/ocl ...
+0.037 [ Info   ][ComponentLoader::import(path_list)] Loaded component type 'OCL::HelloWorld'
+0.038 [ Info   ][ComponentLoader::import(path_list)] Loaded multi component library '/opt/ros/indigo/lib/orocos/gnulinux/ocl/liborocos-ocl-common-gnulinux.so'
+0.040 [ Info   ][ComponentLoader::import(path_list)] Loaded multi component library '/opt/ros/indigo/lib/orocos/gnulinux/ocl/liborocos-ocl-logging-gnulinux.so'
+0.041 [ Info   ][ComponentLoader::import(path_list)] Loaded component type 'OCL::LuaComponent'
+0.042 [ Info   ][ComponentLoader::import(path_list)] Loaded multi component library '/opt/ros/indigo/lib/orocos/gnulinux/ocl/liborocos-ocl-reporting-gnulinux.so'
+0.055 [ Info   ][ComponentLoader::import(path_list)] Loaded multi component library '/opt/ros/indigo/lib/orocos/gnulinux/ocl/liborocos-ocl-reporting-netcdf-gnulinux.so'
+0.055 [ Info   ][ComponentLoader::import(path_list)] Loaded component type 'OCL::NetcdfReporting'
+0.056 [ Info   ][ComponentLoader::import(path_list)] Loaded component type 'OCL::LuaTLSFComponent'
+0.058 [ Info   ][ComponentLoader::import(path_list)] Loaded multi component library '/opt/ros/indigo/lib/orocos/gnulinux/ocl/liborocos-ocl-timer-gnulinux.so'
+0.058 [ Info   ][ComponentLoader::import(path_list)] Loading typekit libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/ocl/types ...
+0.061 [ Info   ][TypekitRepository::Import] Loading Typekit OCLTypekit.
+0.061 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT TypeKit/Transport 'OCLTypekit' from 'ocl'
+0.062 [ Info   ][ComponentLoader::import(path_list)] Loading plugin libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/ocl/plugins ...
+0.062 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT Service 'print' from 'print'
+0.064 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT Service 'os' from 'os'
+0.065 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT Service 'LuaTLSF' from 'rttlua-tlsf-plugin'
+0.065 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT Service 'Lua' from 'rttlua-plugin'
+0.065 [ Info   ][ComponentLoader::import(path_list)] Importing directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/ocl ...
+0.067 [ Warning][ComponentLoader::import(path_list)] Component type name OCL::HelloWorld already used: overriding.
+0.067 [ Info   ][ComponentLoader::import(path_list)] Loaded component type 'OCL::HelloWorld'
+0.068 [ Info   ][ComponentLoader::import(path_list)] Loaded multi component library '/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/ocl/liborocos-ocl-common-gnulinux.so'
+0.070 [ Info   ][ComponentLoader::import(path_list)] Loaded multi component library '/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/ocl/liborocos-ocl-logging-gnulinux.so'
+0.070 [ Warning][ComponentLoader::import(path_list)] Component type name OCL::LuaComponent already used: overriding.
+0.070 [ Info   ][ComponentLoader::import(path_list)] Loaded component type 'OCL::LuaComponent'
+0.072 [ Info   ][ComponentLoader::import(path_list)] Loaded multi component library '/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/ocl/liborocos-ocl-reporting-gnulinux.so'
+0.074 [ Info   ][ComponentLoader::import(path_list)] Loaded multi component library '/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/ocl/liborocos-ocl-reporting-netcdf-gnulinux.so'
+0.074 [ Warning][ComponentLoader::import(path_list)] Component type name OCL::NetcdfReporting already used: overriding.
+0.074 [ Info   ][ComponentLoader::import(path_list)] Loaded component type 'OCL::NetcdfReporting'
+0.075 [ Warning][ComponentLoader::import(path_list)] Component type name OCL::LuaTLSFComponent already used: overriding.
+0.075 [ Info   ][ComponentLoader::import(path_list)] Loaded component type 'OCL::LuaTLSFComponent'
+0.082 [ Info   ][ComponentLoader::import(path_list)] Loaded component type 'OCL::logging::Log4cxxAppender'
+0.085 [ Info   ][ComponentLoader::import(path_list)] Loaded multi component library '/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/ocl/liborocos-ocl-timer-gnulinux.so'
+0.085 [ Info   ][ComponentLoader::import(path_list)] Loading typekit libraries from directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/ocl/types ...
+0.085 [ Info   ][ComponentLoader::import(path_list)] Loading plugin libraries from directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/ocl/plugins ...
+0.085 [ Info   ][Thread] Creating Thread for scheduler=ORO_SCHED_OTHER, priority=1, CPU affinity=0, with name='TaskBrowser'
+0.085 [ Info   ][TaskBrowser] Thread created with scheduler type 'ORO_SCHED_OTHER', priority 0, cpu affinity 15 and period 0 (PID= 19041 ).
+0.086 [ Info   ][Logger] Entering Task Deployer
+1.441 [ Info   ][Thread] Creating Thread for scheduler=ORO_SCHED_OTHER, priority=1, CPU affinity=0, with name='GlobalEngine'
+1.441 [ Info   ][GlobalEngine] Thread created with scheduler type 'ORO_SCHED_OTHER', priority 0, cpu affinity 15 and period 0 (PID= 19042 ).
+1.442 [ Info   ][Logger] Loading Service or Plugin scripting in TaskContext Deployer
+1.445 [ Info   ][Logger] Running Script /home/biorob/coman_workspace/walking-rtt/Walking/ops/TestComanWalking.ops ...
+1.446 [ Info   ][ComponentLoader::import(path_list)] Importing directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/rtt-gazebo-robot-sim ...
+1.646 [ Info   ][ComponentLoader::import(path_list)] Loaded multi component library '/home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/rtt-gazebo-robot-sim/librtt-gazebo-robot-sim-gnulinux.so'
+1.647 [ Info   ][ComponentLoader::import(path_list)] Importing directory /opt/ros/indigo/lib/orocos/gnulinux/eigen_typekit ...
+1.647 [ Info   ][ComponentLoader::import(path_list)] Loading typekit libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/eigen_typekit/types ...
+1.651 [ Info   ][TypekitRepository::Import] Loading Typekit Eigen.
+1.651 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT TypeKit/Transport 'Eigen' from 'eigen_typekit'
+1.651 [ Info   ][ComponentLoader::import(path_list)] Importing directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/eigen_typekit ...
+1.651 [ Info   ][ComponentLoader::import(path_list)] Loading typekit libraries from directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/eigen_typekit/types ...
+1.651 [ Info   ][ComponentLoader::import(path_list)] Importing directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/rst-rt_typekit ...
+1.651 [ Info   ][ComponentLoader::import(path_list)] Loading typekit libraries from directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/rst-rt_typekit/types ...
+1.713 [ Info   ][TypekitRepository::Import] Loading Typekit rst-rt.
+1.714 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT TypeKit/Transport 'rst-rt' from 'rst-rt_typekit'
+1.714 [ Info   ][ComponentLoader::import(path_list)] Importing directory /opt/ros/indigo/lib/orocos/gnulinux/kdl_typekit ...
+1.722 [ Info   ][ComponentLoader::import(path_list)] Loaded component type 'KDLTypekitTestComponent'
+1.722 [ Info   ][ComponentLoader::import(path_list)] Loading typekit libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/kdl_typekit/types ...
+1.757 [ Info   ][TypekitRepository::Import] Loading Typekit KDL.
+1.757 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT TypeKit/Transport 'KDL' from 'kdl_typekit'
+1.759 [ Info   ][TypekitRepository::Import] Loading Transport CORBA://KDL.
+1.759 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for KDL.Frame
+1.759 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for KDL.Rotation
+1.759 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for KDL.Twist
+1.759 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for KDL.Vector
+1.759 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for KDL.Wrench
+1.759 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT TypeKit/Transport 'kdl-corba-types' from 'kdl-transport-corba'
+1.759 [ Info   ][ComponentLoader::import(path_list)] Importing directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/kdl_typekit ...
+1.759 [ Info   ][ComponentLoader::import(path_list)] Loading typekit libraries from directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/kdl_typekit/types ...
+1.760 [ Info   ][ComponentLoader::import(path_list)] Importing directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/rtt_gazebo_embedded ...
+1.762 [ Info   ][ComponentLoader::import(path_list)] Loaded component type 'ModelPluginExample'
+1.769 [ Info   ][ComponentLoader::import(path_list)] Loaded component type 'RTTGazeboEmbedded'
+1.769 [ Info   ][ComponentLoader::import(path_list)] Importing directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_ros ...
+1.769 [ Info   ][ComponentLoader::import(path_list)] Loading typekit libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_ros/types ...
+1.812 [ Info   ][TypekitRepository::Import] Loading Typekit ros-primitives.
+1.813 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT TypeKit/Transport 'ros-primitives' from 'rtt-ros-primitives-typekit'
+1.813 [ Info   ][ComponentLoader::import(path_list)] Loading plugin libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_ros/plugins ...
+1.814 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT Plugin 'ros' from 'rtt_ros_service'
+1.814 [ Info   ][ComponentLoader::import(path_list)] Importing directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_rosnode ...
+1.814 [ Info   ][ComponentLoader::import(path_list)] Loading plugin libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_rosnode/plugins ...
+1.815 [ Info   ][ComponentLoader::import(path_list)] Initializing ROS node in Orocos plugin...
+1.834 [ Info   ][ComponentLoader::import(path_list)] ROS node spinner started (1 thread).
+1.834 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT Plugin 'rosnode' from 'rtt_rosnode'
+1.835 [ Info   ][ComponentLoader::import(path_list)] Importing directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/rtt_rsbcomm ...
+1.835 [ Info   ][ComponentLoader::import(path_list)] Loading typekit libraries from directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/rtt_rsbcomm/types ...
+1.876 [ Info   ][TypekitRepository::Import] Loading Transport rsb+socket://rsb.
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for bool
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for char
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for double
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for float
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for int
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.dynamics.Forces
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.dynamics.JointImpedance
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.dynamics.JointTorques
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.dynamics.Torques
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.dynamics.Wrench
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.geometry.AngularVelocity
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.geometry.Pose
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.geometry.Rotation
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.geometry.Translation
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.kinematics.JointAccelerations
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.kinematics.JointAngles
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.kinematics.JointJerks
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.kinematics.JointVelocities
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.kinematics.LinearVelocities
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.kinematics.Twist
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.robot.JointState
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for rstrt.robot.Weights
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for string
+1.876 [ Info   ][TypekitRepository::Import] Registered new 'rsb+socket' transport for uint
+1.877 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT TypeKit/Transport 'rtt-rsb-socket-transport' from 'rtt-rsb-socket-transport'
+1.877 [ Info   ][ComponentLoader::import(path_list)] Loading plugin libraries from directory /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/lib/orocos/gnulinux/rtt_rsbcomm/plugins ...
+1.878 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT Plugin 'rtt-rsb-scope-service' from 'rtt-rsb-scope-service'
+1.879 [ Info   ][ComponentLoader::import(path_list)] Importing directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_geometry_msgs ...
+1.879 [ Info   ][ComponentLoader::import(path_list)] Loading typekit libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_geometry_msgs/types ...
+1.897 [ Info   ][TypekitRepository::Import] Loading Transport ros://ros-geometry_msgs.
+1.897 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT TypeKit/Transport 'rtt-ros-geometry_msgs-transport' from 'rtt-geometry_msgs-ros-transport'
+2.015 [ Info   ][TypekitRepository::Import] Loading Typekit ros-geometry_msgs.
+2.015 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/Accel
+2.015 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/AccelStamped
+2.016 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/AccelWithCovariance
+2.016 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/AccelWithCovarianceStamped
+2.016 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/Inertia
+2.016 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/InertiaStamped
+2.016 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/Point
+2.016 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/Point32
+2.016 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/PointStamped
+2.016 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/Polygon
+2.016 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/PolygonStamped
+2.016 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/Pose2D
+2.016 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/Pose
+2.017 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/PoseArray
+2.017 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/PoseStamped
+2.017 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/PoseWithCovariance
+2.017 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/PoseWithCovarianceStamped
+2.017 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/Quaternion
+2.017 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/QuaternionStamped
+2.017 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/Transform
+2.017 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/TransformStamped
+2.017 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/Twist
+2.017 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/TwistStamped
+2.017 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/TwistWithCovariance
+2.018 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/TwistWithCovarianceStamped
+2.018 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/Vector3
+2.018 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/Vector3Stamped
+2.018 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/Wrench
+2.018 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /geometry_msgs/WrenchStamped
+2.018 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT TypeKit/Transport 'ros-geometry_msgs' from 'rtt-geometry_msgs-typekit'
+2.018 [ Info   ][ComponentLoader::import(path_list)] Importing directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_std_msgs ...
+2.018 [ Info   ][ComponentLoader::import(path_list)] Loading typekit libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_std_msgs/types ...
+2.037 [ Info   ][TypekitRepository::Import] Loading Transport ros://ros-std_msgs.
+2.037 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT TypeKit/Transport 'rtt-ros-std_msgs-transport' from 'rtt-std_msgs-ros-transport'
+2.173 [ Info   ][TypekitRepository::Import] Loading Typekit ros-std_msgs.
+2.173 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Bool
+2.173 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Byte
+2.174 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/ByteMultiArray
+2.174 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Char
+2.174 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/ColorRGBA
+2.174 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Duration
+2.174 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Empty
+2.174 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Float32
+2.174 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Float32MultiArray
+2.174 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Float64
+2.174 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Float64MultiArray
+2.174 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Header
+2.175 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Int16
+2.175 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Int16MultiArray
+2.175 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Int32
+2.175 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Int32MultiArray
+2.175 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Int64
+2.175 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Int64MultiArray
+2.175 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Int8
+2.175 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Int8MultiArray
+2.175 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/MultiArrayDimension
+2.176 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/MultiArrayLayout
+2.176 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/String
+2.176 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/Time
+2.176 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/UInt16
+2.176 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/UInt16MultiArray
+2.176 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/UInt32
+2.176 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/UInt32MultiArray
+2.176 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/UInt64
+2.176 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/UInt64MultiArray
+2.177 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/UInt8
+2.177 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /std_msgs/UInt8MultiArray
+2.177 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT TypeKit/Transport 'ros-std_msgs' from 'rtt-std_msgs-typekit'
+2.177 [ Info   ][ComponentLoader::import(path_list)] Loading plugin libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_std_msgs/plugins ...
+2.184 [ Info   ][TypekitRepository::Import] Loading Transport ros://ros-primitives.
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for array
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for bool
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for duration
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for float32
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for float64
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for int16
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for int32
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for int64
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for int8
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for rt_string
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for string
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for time
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for uint16
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for uint32
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for uint64
+2.184 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for uint8
+2.184 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT Plugin 'rtt-ros-primitives-transport' from 'rtt-ros-primitives-transport'
+2.185 [ Info   ][ComponentLoader::import(path_list)] Importing directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_sensor_msgs ...
+2.185 [ Info   ][ComponentLoader::import(path_list)] Loading typekit libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_sensor_msgs/types ...
+2.201 [ Info   ][TypekitRepository::Import] Loading Transport ros://ros-sensor_msgs.
+2.202 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT TypeKit/Transport 'rtt-ros-sensor_msgs-transport' from 'rtt-sensor_msgs-ros-transport'
+2.322 [ Info   ][TypekitRepository::Import] Loading Typekit ros-sensor_msgs.
+2.322 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/BatteryState
+2.323 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/CameraInfo
+2.323 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/ChannelFloat32
+2.323 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/CompressedImage
+2.323 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/FluidPressure
+2.323 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/Illuminance
+2.323 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/Image
+2.323 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/Imu
+2.323 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/JointState
+2.324 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/Joy
+2.324 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/JoyFeedback
+2.324 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/JoyFeedbackArray
+2.324 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/LaserEcho
+2.324 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/LaserScan
+2.324 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/MagneticField
+2.324 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/MultiDOFJointState
+2.324 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/MultiEchoLaserScan
+2.325 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/NavSatFix
+2.325 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/NavSatStatus
+2.325 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/PointCloud
+2.325 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/PointCloud2
+2.325 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/PointField
+2.325 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/Range
+2.325 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/RegionOfInterest
+2.325 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/RelativeHumidity
+2.326 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/Temperature
+2.326 [ Info   ][TypekitRepository::Import] Registered new 'ros' transport for /sensor_msgs/TimeReference
+2.326 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT TypeKit/Transport 'ros-sensor_msgs' from 'rtt-sensor_msgs-typekit'
+2.326 [ Info   ][ComponentLoader::import(path_list)] Loading plugin libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_sensor_msgs/plugins ...
+2.331 [ Info   ][ComponentLoader::import(path_list)] Successfully registered ROS service factory for "sensor_msgs/SetCameraInfo".
+2.331 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT Plugin 'rtt_sensor_msgs_ros_service_proxies' from 'rtt_sensor_msgs_rosservice_proxies'
+2.332 [ Info   ][ComponentLoader::import(path_list)] Importing directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_std_srvs ...
+2.332 [ Info   ][ComponentLoader::import(path_list)] Loading plugin libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_std_srvs/plugins ...
+2.338 [ Info   ][ComponentLoader::import(path_list)] Successfully registered ROS service factory for "std_srvs/Empty".
+2.338 [ Info   ][ComponentLoader::import(path_list)] Successfully registered ROS service factory for "std_srvs/SetBool".
+2.338 [ Info   ][ComponentLoader::import(path_list)] Successfully registered ROS service factory for "std_srvs/Trigger".
+2.338 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT Plugin 'rtt_std_srvs_ros_service_proxies' from 'rtt_std_srvs_rosservice_proxies'
+2.368 [ Info   ][ComponentLoader::import(path_list)] Importing directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_roscomm ...
+2.368 [ Info   ][ComponentLoader::import(path_list)] Loading plugin libraries from directory /opt/ros/indigo/lib/orocos/gnulinux/rtt_roscomm/plugins ...
+2.369 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT Plugin 'rosservice_registry' from 'rtt_rosservice_registry'
+2.369 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT Plugin 'rostopic' from 'rtt_rostopic_service'
+2.371 [ Info   ][ComponentLoader::import(path_list)] Loaded RTT Service 'rosservice' from 'rtt_rosservice'
+2.372 [ Info   ][ROSService::import("rtt_roscomm")] Loaded plugins from ROS package "rtt_roscomm" and its dependencies.
+2.373 [ Info   ][Thread] Creating Thread for scheduler=ORO_SCHED_OTHER, priority=1, CPU affinity=0, with name='gazebo'
+2.373 [ Info   ][gazebo] Thread created with scheduler type 'ORO_SCHED_OTHER', priority 0, cpu affinity 15 and period 0 (PID= 19063 ).
+2.373 [ Info   ][loadComponent] Creating gazebo with gazebo embedded !
+2.373 [ Info   ][loadComponent] Adding gazebo as new peer:  OK.
+2.374 [ Info   ][Thread] Creating Thread for scheduler=ORO_SCHED_RT, priority=1, CPU affinity=4294967295, with name='gazebo'
+2.374 [ Warning][Thread] Lowering scheduler type to SCHED_OTHER for non-privileged users..
+2.374 [ Warning][gazebo] Lowering scheduler type to SCHED_OTHER for non-privileged users..
+2.374 [ Info   ][gazebo] Thread created with scheduler type 'ORO_SCHED_OTHER', priority 0, cpu affinity 15 and period 0 (PID= 19064 ).
+2.375 [ Info   ][Thread] Creating Thread for scheduler=ORO_SCHED_OTHER, priority=1, CPU affinity=0, with name='coman'
+2.375 [ Info   ][coman] Thread created with scheduler type 'ORO_SCHED_OTHER', priority 0, cpu affinity 15 and period 0 (PID= 19065 ).
+2.375 [ Info   ][loadComponent] Adding coman as new peer:  OK.
+2.376 [ Info   ][Thread] Creating Thread for scheduler=ORO_SCHED_RT, priority=3, CPU affinity=4294967295, with name='coman'
+2.376 [ Warning][Thread] Lowering scheduler type to SCHED_OTHER for non-privileged users..
+2.376 [ Warning][Thread] Forcing priority (3) of thread with SCHED_OTHER policy to 0.
+2.376 [ Warning][coman] Lowering scheduler type to SCHED_OTHER for non-privileged users..
+2.376 [ Info   ][coman] Thread created with scheduler type 'ORO_SCHED_OTHER', priority 0, cpu affinity 15 and period 0 (PID= 19066 ).
+2.387 [ Info   ][ScriptingService] Creating world at worlds/empty.world
+4.042 [ Info   ][ScriptingService] URDF path: /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/share/gazebo/models/cogimon/iit-coman/model.urdf
+4.042 [ Info   ][ScriptingService] SRDF path: /home/biorob/citk/systems/cogimon-minimal-trusty-nightly/share/gazebo/models/cogimon/iit-coman/coman.srdf
+4.054 [ Info   ][ScriptingService] chain #0 left_arm
+4.054 [ Info   ][ScriptingService]   LShSag
+4.054 [ Info   ][ScriptingService]   LShLat
+4.054 [ Info   ][ScriptingService]   LShYaw
+4.054 [ Info   ][ScriptingService]   LElbj
+4.054 [ Info   ][ScriptingService]   LForearmPlate
+4.054 [ Info   ][ScriptingService]   LWrj1
+4.054 [ Info   ][ScriptingService]   LWrj2
+4.054 [ Info   ][ScriptingService] chain #1 right_arm
+4.054 [ Info   ][ScriptingService]   RShSag
+4.054 [ Info   ][ScriptingService]   RShLat
+4.054 [ Info   ][ScriptingService]   RShYaw
+4.054 [ Info   ][ScriptingService]   RElbj
+4.054 [ Info   ][ScriptingService]   RForearmPlate
+4.055 [ Info   ][ScriptingService]   RWrj1
+4.055 [ Info   ][ScriptingService]   RWrj2
+4.055 [ Info   ][ScriptingService] chain #2 left_leg
+4.055 [ Info   ][ScriptingService]   LHipSag
+4.055 [ Info   ][ScriptingService]   LHipLat
+4.055 [ Info   ][ScriptingService]   LHipYaw
+4.055 [ Info   ][ScriptingService]   LKneeSag
+4.055 [ Info   ][ScriptingService]   LAnkLat
+4.055 [ Info   ][ScriptingService]   LAnkSag
+4.055 [ Info   ][ScriptingService] chain #3 right_leg
+4.055 [ Info   ][ScriptingService]   RHipSag
+4.055 [ Info   ][ScriptingService]   RHipLat
+4.055 [ Info   ][ScriptingService]   RHipYaw
+4.055 [ Info   ][ScriptingService]   RKneeSag
+4.055 [ Info   ][ScriptingService]   RAnkLat
+4.055 [ Info   ][ScriptingService]   RAnkSag
+4.055 [ Info   ][ScriptingService] chain #4 torso
+4.055 [ Info   ][ScriptingService]   WaistLat
+4.055 [ Info   ][ScriptingService]   WaistSag
+4.055 [ Info   ][ScriptingService]   WaistYaw
+4.055 [ Info   ][ScriptingService] Model [coman] successfully loaded !
+4.055 [ Info   ][ScriptingService] Model name coman
+4.056 [ Info   ][ScriptingService] Model has 29 joints
+4.056 [ Info   ][ScriptingService] Model has 30 links
+4.056 [ Info   ][ScriptingService] Creating Kinematic Chain left_arm
+4.056 [ Info   ][ScriptingService] Joints: 
+4.056 [ Info   ][ScriptingService]     LShSag
+4.056 [ Info   ][ScriptingService]     LShLat
+4.056 [ Info   ][ScriptingService]     LShYaw
+4.056 [ Info   ][ScriptingService]     LElbj
+4.056 [ Info   ][ScriptingService]     LForearmPlate
+4.056 [ Info   ][ScriptingService]     LWrj1
+4.056 [ Info   ][ScriptingService]     LWrj2
+4.056 [ Info   ][ScriptingService] Creating Kinematic Chain right_arm
+4.056 [ Info   ][ScriptingService] Joints: 
+4.056 [ Info   ][ScriptingService]     RShSag
+4.056 [ Info   ][ScriptingService]     RShLat
+4.056 [ Info   ][ScriptingService]     RShYaw
+4.056 [ Info   ][ScriptingService]     RElbj
+4.056 [ Info   ][ScriptingService]     RForearmPlate
+4.056 [ Info   ][ScriptingService]     RWrj1
+4.056 [ Info   ][ScriptingService]     RWrj2
+4.056 [ Info   ][ScriptingService] Creating Kinematic Chain left_leg
+4.056 [ Info   ][ScriptingService] Joints: 
+4.056 [ Info   ][ScriptingService]     LHipSag
+4.056 [ Info   ][ScriptingService]     LHipLat
+4.056 [ Info   ][ScriptingService]     LHipYaw
+4.056 [ Info   ][ScriptingService]     LKneeSag
+4.056 [ Info   ][ScriptingService]     LAnkLat
+4.056 [ Info   ][ScriptingService]     LAnkSag
+4.056 [ Info   ][ScriptingService] Creating Kinematic Chain right_leg
+4.056 [ Info   ][ScriptingService] Joints: 
+4.056 [ Info   ][ScriptingService]     RHipSag
+4.056 [ Info   ][ScriptingService]     RHipLat
+4.056 [ Info   ][ScriptingService]     RHipYaw
+4.056 [ Info   ][ScriptingService]     RKneeSag
+4.056 [ Info   ][ScriptingService]     RAnkLat
+4.056 [ Info   ][ScriptingService]     RAnkSag
+4.056 [ Info   ][ScriptingService] Creating Kinematic Chain torso
+4.056 [ Info   ][ScriptingService] Joints: 
+4.056 [ Info   ][ScriptingService]     WaistLat
+4.056 [ Info   ][ScriptingService]     WaistSag
+4.056 [ Info   ][ScriptingService]     WaistYaw
+4.056 [ Info   ][ScriptingService] Kinematic Chains map created!
+4.056 [ Info   ][ScriptingService] Available controllers for left_arm are:
+4.056 [ Info   ][ScriptingService]   JointPositionCtrl
+4.056 [ Info   ][ScriptingService]   JointImpedanceCtrl
+4.056 [ Info   ][ScriptingService]   JointTorqueCtrl
+4.056 [ Info   ][ScriptingService] Joint LElbj in chain left_arm has scoped name coman::LElbj
+4.056 [ Info   ][ScriptingService] Joint LForearmPlate in chain left_arm has scoped name coman::LForearmPlate
+4.056 [ Info   ][ScriptingService] Joint LShLat in chain left_arm has scoped name coman::LShLat
+4.056 [ Info   ][ScriptingService] Joint LShSag in chain left_arm has scoped name coman::LShSag
+4.056 [ Info   ][ScriptingService] Joint LShYaw in chain left_arm has scoped name coman::LShYaw
+4.056 [ Info   ][ScriptingService] Joint LWrj1 in chain left_arm has scoped name coman::LWrj1
+4.056 [ Info   ][ScriptingService] Joint LWrj2 in chain left_arm has scoped name coman::LWrj2
+4.056 [ Info   ][ScriptingService] JointPositionCtrl activated!
+4.056 [ Info   ][ScriptingService] JointImpedanceCtrl activated!
+4.056 [ Info   ][ScriptingService] JointTorqueCtrl activated!
+4.057 [ Info   ][ScriptingService] Full feedback activated!
+4.057 [ Info   ][ScriptingService] left_arm PIDs:
+4.057 [ Info   ][ScriptingService]   LShSag P: 1000 I: 0 D: 0.1
+4.057 [ Info   ][ScriptingService]   LShLat P: 1000 I: 0 D: 0.1
+4.057 [ Info   ][ScriptingService]   LShYaw P: 600 I: 0 D: 0.1
+4.057 [ Info   ][ScriptingService]   LElbj P: 1000 I: 0 D: 0.1
+4.057 [ Info   ][ScriptingService]   LForearmPlate P: 100 I: 0 D: 0.1
+4.057 [ Info   ][ScriptingService]   LWrj1 P: 100 I: 0 D: 0.1
+4.057 [ Info   ][ScriptingService]   LWrj2 P: 10 I: 0 D: 0.01
+4.057 [ Info   ][ScriptingService] Gazebo Joint Controlled inited!
+4.057 [ Info   ][ScriptingService] Initial Position set!
+4.057 [ Info   ][ScriptingService] left_arm impedance:
+4.057 [ Info   ][ScriptingService]   LShSag stiffness: 300 damping: 30
+4.057 [ Info   ][ScriptingService]   LShLat stiffness: 300 damping: 30
+4.057 [ Info   ][ScriptingService]   LShYaw stiffness: 300 damping: 30
+4.057 [ Info   ][ScriptingService]   LElbj stiffness: 300 damping: 30
+4.057 [ Info   ][ScriptingService]   LForearmPlate stiffness: 300 damping: 30
+4.057 [ Info   ][ScriptingService]   LWrj1 stiffness: 300 damping: 30
+4.057 [ Info   ][ScriptingService]   LWrj2 stiffness: 300 damping: 30
+4.057 [ Info   ][ScriptingService] Initial Impedance set!
+4.057 [ Info   ][ScriptingService] Available controllers for left_leg are:
+4.057 [ Info   ][ScriptingService]   JointPositionCtrl
+4.057 [ Info   ][ScriptingService]   JointImpedanceCtrl
+4.057 [ Info   ][ScriptingService]   JointTorqueCtrl
+4.057 [ Info   ][ScriptingService] Joint LAnkLat in chain left_leg has scoped name coman::LAnkLat
+4.057 [ Info   ][ScriptingService] Joint LAnkSag in chain left_leg has scoped name coman::LAnkSag
+4.057 [ Info   ][ScriptingService] Joint LHipLat in chain left_leg has scoped name coman::LHipLat
+4.057 [ Info   ][ScriptingService] Joint LHipSag in chain left_leg has scoped name coman::LHipSag
+4.057 [ Info   ][ScriptingService] Joint LHipYaw in chain left_leg has scoped name coman::LHipYaw
+4.057 [ Info   ][ScriptingService] Joint LKneeSag in chain left_leg has scoped name coman::LKneeSag
+4.057 [ Info   ][ScriptingService] JointPositionCtrl activated!
+4.057 [ Info   ][ScriptingService] JointImpedanceCtrl activated!
+4.057 [ Info   ][ScriptingService] JointTorqueCtrl activated!
+4.057 [ Info   ][ScriptingService] Full feedback activated!
+4.057 [ Info   ][ScriptingService] left_leg PIDs:
+4.057 [ Info   ][ScriptingService]   LHipSag P: 3000 I: 0 D: 0.1
+4.057 [ Info   ][ScriptingService]   LHipLat P: 5000 I: 0 D: 0.1
+4.057 [ Info   ][ScriptingService]   LHipYaw P: 3000 I: 0 D: 0.1
+4.057 [ Info   ][ScriptingService]   LKneeSag P: 3000 I: 0 D: 0.1
+4.057 [ Info   ][ScriptingService]   LAnkLat P: 4000 I: 0 D: 0.1
+4.057 [ Info   ][ScriptingService]   LAnkSag P: 3000 I: 0 D: 1
+4.057 [ Info   ][ScriptingService] Gazebo Joint Controlled inited!
+4.057 [ Info   ][ScriptingService] Initial Position set!
+4.057 [ Info   ][ScriptingService] left_leg impedance:
+4.057 [ Info   ][ScriptingService]   LHipSag stiffness: 300 damping: 30
+4.057 [ Info   ][ScriptingService]   LHipLat stiffness: 300 damping: 30
+4.057 [ Info   ][ScriptingService]   LHipYaw stiffness: 300 damping: 30
+4.057 [ Info   ][ScriptingService]   LKneeSag stiffness: 300 damping: 30
+4.057 [ Info   ][ScriptingService]   LAnkLat stiffness: 300 damping: 30
+4.057 [ Info   ][ScriptingService]   LAnkSag stiffness: 300 damping: 30
+4.057 [ Info   ][ScriptingService] Initial Impedance set!
+4.057 [ Info   ][ScriptingService] Available controllers for right_arm are:
+4.057 [ Info   ][ScriptingService]   JointPositionCtrl
+4.057 [ Info   ][ScriptingService]   JointImpedanceCtrl
+4.057 [ Info   ][ScriptingService]   JointTorqueCtrl
+4.057 [ Info   ][ScriptingService] Joint RElbj in chain right_arm has scoped name coman::RElbj
+4.057 [ Info   ][ScriptingService] Joint RForearmPlate in chain right_arm has scoped name coman::RForearmPlate
+4.057 [ Info   ][ScriptingService] Joint RShLat in chain right_arm has scoped name coman::RShLat
+4.057 [ Info   ][ScriptingService] Joint RShSag in chain right_arm has scoped name coman::RShSag
+4.057 [ Info   ][ScriptingService] Joint RShYaw in chain right_arm has scoped name coman::RShYaw
+4.057 [ Info   ][ScriptingService] Joint RWrj1 in chain right_arm has scoped name coman::RWrj1
+4.058 [ Info   ][ScriptingService] Joint RWrj2 in chain right_arm has scoped name coman::RWrj2
+4.058 [ Info   ][ScriptingService] JointPositionCtrl activated!
+4.058 [ Info   ][ScriptingService] JointImpedanceCtrl activated!
+4.058 [ Info   ][ScriptingService] JointTorqueCtrl activated!
+4.058 [ Info   ][ScriptingService] Full feedback activated!
+4.058 [ Info   ][ScriptingService] right_arm PIDs:
+4.058 [ Info   ][ScriptingService]   RShSag P: 1000 I: 0 D: 0.1
+4.058 [ Info   ][ScriptingService]   RShLat P: 1000 I: 0 D: 0.1
+4.058 [ Info   ][ScriptingService]   RShYaw P: 600 I: 0 D: 0.1
+4.058 [ Info   ][ScriptingService]   RElbj P: 1000 I: 0 D: 0.1
+4.058 [ Info   ][ScriptingService]   RForearmPlate P: 100 I: 0 D: 0.1
+4.058 [ Info   ][ScriptingService]   RWrj1 P: 100 I: 0 D: 0.1
+4.058 [ Info   ][ScriptingService]   RWrj2 P: 10 I: 0 D: 0.01
+4.058 [ Info   ][ScriptingService] Gazebo Joint Controlled inited!
+4.058 [ Info   ][ScriptingService] Initial Position set!
+4.058 [ Info   ][ScriptingService] right_arm impedance:
+4.058 [ Info   ][ScriptingService]   RShSag stiffness: 300 damping: 30
+4.058 [ Info   ][ScriptingService]   RShLat stiffness: 300 damping: 30
+4.058 [ Info   ][ScriptingService]   RShYaw stiffness: 300 damping: 30
+4.058 [ Info   ][ScriptingService]   RElbj stiffness: 300 damping: 30
+4.058 [ Info   ][ScriptingService]   RForearmPlate stiffness: 300 damping: 30
+4.058 [ Info   ][ScriptingService]   RWrj1 stiffness: 300 damping: 30
+4.058 [ Info   ][ScriptingService]   RWrj2 stiffness: 300 damping: 30
+4.058 [ Info   ][ScriptingService] Initial Impedance set!
+4.058 [ Info   ][ScriptingService] Available controllers for right_leg are:
+4.058 [ Info   ][ScriptingService]   JointPositionCtrl
+4.058 [ Info   ][ScriptingService]   JointImpedanceCtrl
+4.058 [ Info   ][ScriptingService]   JointTorqueCtrl
+4.058 [ Info   ][ScriptingService] Joint RAnkLat in chain right_leg has scoped name coman::RAnkLat
+4.058 [ Info   ][ScriptingService] Joint RAnkSag in chain right_leg has scoped name coman::RAnkSag
+4.058 [ Info   ][ScriptingService] Joint RHipLat in chain right_leg has scoped name coman::RHipLat
+4.058 [ Info   ][ScriptingService] Joint RHipSag in chain right_leg has scoped name coman::RHipSag
+4.058 [ Info   ][ScriptingService] Joint RHipYaw in chain right_leg has scoped name coman::RHipYaw
+4.058 [ Info   ][ScriptingService] Joint RKneeSag in chain right_leg has scoped name coman::RKneeSag
+4.058 [ Info   ][ScriptingService] JointPositionCtrl activated!
+4.058 [ Info   ][ScriptingService] JointImpedanceCtrl activated!
+4.058 [ Info   ][ScriptingService] JointTorqueCtrl activated!
+4.058 [ Info   ][ScriptingService] Full feedback activated!
+4.058 [ Info   ][ScriptingService] right_leg PIDs:
+4.058 [ Info   ][ScriptingService]   RHipSag P: 3000 I: 0 D: 0.1
+4.058 [ Info   ][ScriptingService]   RHipLat P: 5000 I: 0 D: 0.1
+4.058 [ Info   ][ScriptingService]   RHipYaw P: 3000 I: 0 D: 0.1
+4.058 [ Info   ][ScriptingService]   RKneeSag P: 3000 I: 0 D: 0.1
+4.058 [ Info   ][ScriptingService]   RAnkLat P: 4000 I: 0 D: 0.1
+4.058 [ Info   ][ScriptingService]   RAnkSag P: 3000 I: 0 D: 1
+4.058 [ Info   ][ScriptingService] Gazebo Joint Controlled inited!
+4.058 [ Info   ][ScriptingService] Initial Position set!
+4.058 [ Info   ][ScriptingService] right_leg impedance:
+4.058 [ Info   ][ScriptingService]   RHipSag stiffness: 300 damping: 30
+4.058 [ Info   ][ScriptingService]   RHipLat stiffness: 300 damping: 30
+4.058 [ Info   ][ScriptingService]   RHipYaw stiffness: 300 damping: 30
+4.058 [ Info   ][ScriptingService]   RKneeSag stiffness: 300 damping: 30
+4.058 [ Info   ][ScriptingService]   RAnkLat stiffness: 300 damping: 30
+4.058 [ Info   ][ScriptingService]   RAnkSag stiffness: 300 damping: 30
+4.058 [ Info   ][ScriptingService] Initial Impedance set!
+4.059 [ Info   ][ScriptingService] Available controllers for torso are:
+4.059 [ Info   ][ScriptingService]   JointPositionCtrl
+4.059 [ Info   ][ScriptingService]   JointImpedanceCtrl
+4.059 [ Info   ][ScriptingService]   JointTorqueCtrl
+4.059 [ Info   ][ScriptingService] Joint WaistLat in chain torso has scoped name coman::WaistLat
+4.059 [ Info   ][ScriptingService] Joint WaistSag in chain torso has scoped name coman::WaistSag
+4.059 [ Info   ][ScriptingService] Joint WaistYaw in chain torso has scoped name coman::WaistYaw
+4.059 [ Info   ][ScriptingService] JointPositionCtrl activated!
+4.059 [ Info   ][ScriptingService] JointImpedanceCtrl activated!
+4.059 [ Info   ][ScriptingService] JointTorqueCtrl activated!
+4.059 [ Info   ][ScriptingService] Full feedback activated!
+4.059 [ Info   ][ScriptingService] torso PIDs:
+4.059 [ Info   ][ScriptingService]   WaistLat P: 1000 I: 0 D: 0.1
+4.059 [ Info   ][ScriptingService]   WaistSag P: 1000 I: 0 D: 0.1
+4.059 [ Info   ][ScriptingService]   WaistYaw P: 1000 I: 0 D: 0.1
+4.059 [ Info   ][ScriptingService] Gazebo Joint Controlled inited!
+4.059 [ Info   ][ScriptingService] Initial Position set!
+4.059 [ Info   ][ScriptingService] torso impedance:
+4.059 [ Info   ][ScriptingService]   WaistLat stiffness: 300 damping: 30
+4.059 [ Info   ][ScriptingService]   WaistSag stiffness: 300 damping: 30
+4.059 [ Info   ][ScriptingService]   WaistYaw stiffness: 300 damping: 30
+4.059 [ Info   ][ScriptingService] Initial Impedance set!
+4.059 [ Info   ][ScriptingService] Kinematic Chains Initialized!
+4.059 [ Info   ][ScriptingService] Checking Sensors (URDF/SRDF)
+4.059 [ Info   ][ScriptingService] Force Update of SensorManager (before accessing sensors)!
+4.059 [ Info   ][ScriptingService] Checking Sensors (Gazebo)
+4.059 [ Info   ][ScriptingService] Creating Force/Torque Sensor 
+4.059 [ Info   ][ScriptingService] Sensor left_arm of type force_torque specified in joint coman::LForearmPlate is associated to link LForearm
+4.059 [ Info   ][ScriptingService] Creating Force/Torque Sensor 
+4.059 [ Info   ][ScriptingService] Sensor left_leg of type force_torque specified in joint coman::LAnkSag is associated to link LFoot
+4.059 [ Info   ][ScriptingService] Creating Force/Torque Sensor 
+4.059 [ Info   ][ScriptingService] Sensor right_arm of type force_torque specified in joint coman::RForearmPlate is associated to link RForearm
+4.059 [ Info   ][ScriptingService] Creating Force/Torque Sensor 
+4.059 [ Info   ][ScriptingService] Sensor right_leg of type force_torque specified in joint coman::RAnkSag is associated to link RFoot
+4.059 [ Warning][ScriptingService] Done Configuring Component
+4.061 [ Info   ][ComponentLoader::import(path_list)] Importing directory /home/biorob/coman_workspace/build/orocos/gnulinux/Walking-rtt ...
+4.235 [ Info   ][ComponentLoader::import(path_list)] Loaded multi component library '/home/biorob/coman_workspace/build/orocos/gnulinux/Walking-rtt/libWalking-rtt-gnulinux.so'
+4.239 [ Info   ][Thread] Creating Thread for scheduler=ORO_SCHED_OTHER, priority=1, CPU affinity=0, with name='walking'
+4.240 [ Info   ][walking] Thread created with scheduler type 'ORO_SCHED_OTHER', priority 0, cpu affinity 15 and period 0 (PID= 19136 ).
+4.240 [ Info   ][loadComponent] Adding walking as new peer:  OK.
+4.240 [ Info   ][Thread] Creating Thread for scheduler=ORO_SCHED_RT, priority=2, CPU affinity=4294967295, with name='walking'
+4.240 [ Warning][Thread] Lowering scheduler type to SCHED_OTHER for non-privileged users..
+4.240 [ Warning][Thread] Forcing priority (2) of thread with SCHED_OTHER policy to 0.
+4.240 [ Warning][walking] Lowering scheduler type to SCHED_OTHER for non-privileged users..
+4.240 [ Info   ][walking] Thread created with scheduler type 'ORO_SCHED_OTHER', priority 0, cpu affinity 15 and period 0.001 (PID= 19138 ).
+4.272 [ Info   ][connect] Connected Port walking.left_arm_torque to  coman.left_arm_JointTorqueCtrl.
+4.272 [ Info   ][connect] Connected Port walking.right_arm_torque to  coman.right_arm_JointTorqueCtrl.
+4.273 [ Info   ][connect] Connected Port walking.left_leg_torque to  coman.left_leg_JointTorqueCtrl.
+4.273 [ Info   ][connect] Connected Port walking.right_leg_torque to  coman.right_leg_JointTorqueCtrl.
+4.274 [ Info   ][connect] Connected Port walking.torso_torque to  coman.torso_JointTorqueCtrl.
+4.274 [ Info   ][connect] Connected Port coman.left_arm_JointFeedback to  walking.left_arm_joint_data.
+4.275 [ Info   ][connect] Connected Port coman.right_arm_JointFeedback to  walking.right_arm_joint_data.
+4.275 [ Info   ][connect] Connected Port coman.left_leg_JointFeedback to  walking.left_leg_joint_data.
+4.275 [ Info   ][connect] Connected Port coman.right_leg_JointFeedback to  walking.right_leg_joint_data.
+4.276 [ Info   ][connect] Connected Port coman.torso_JointFeedback to  walking.torso_joint_data.
+4.276 [ Info   ][connect] Connected Port coman.l_arm_ft_SensorFeedback to  walking.left_arm_wrench.
+4.277 [ Info   ][connect] Connected Port coman.r_arm_ft_SensorFeedback to  walking.right_arm_wrench.
+4.277 [ Info   ][connect] Connected Port coman.l_leg_ft_SensorFeedback to  walking.left_foot_wrench.
+4.278 [ Info   ][connect] Connected Port coman.r_leg_ft_SensorFeedback to  walking.right_foot_wrench.
+4.302 [ Info   ][ScriptingService] Created input stream for input port imu_port
